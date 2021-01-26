@@ -9,6 +9,7 @@
     - PPool only three assets, from balancer
     - since both tokens can get shortage from swapping for thirds, they can race for regression targets and one can become even more depleted and not useful until arbitraged
   - pricing BlnPaper vs DODOPaper vs UniPaper
+    - marginal price from dodo will have to be rewritten as you can no longer rely on either shortage, presume that omthe other side would also lose overflow, instead you should compare shortages or even distance from regression target in either way and better price. in dodo always equilibrium, in balancer never equilibrium, shortage travels between assets?
     - PPricing only spot price from Dodo and mean from balancer
     - formulas for locational marginal price aka spot price
     - http://www2.econ.iastate.edu/tesfatsi/DerivationLMP.HLLTAC.pdf
