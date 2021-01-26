@@ -1,0 +1,6 @@
+#+title: Zinc
+
+[[https://github.com/matter-labs/zinc][Zinc]] - a language to write zero-knowledge circuits and ZKP-based smart contracts
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]

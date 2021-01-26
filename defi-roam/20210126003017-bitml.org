@@ -1,0 +1,8 @@
+#+title: BitML
+- [[https://github.com/bitml-lang/bitml-compiler][BitML]] - a process
+  calculus based language, compiles to Bitcoin script
+  ([[https://eprint.iacr.org/2018/122][article]])
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]

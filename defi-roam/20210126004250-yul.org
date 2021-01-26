@@ -1,0 +1,9 @@
+#+title: Yul+
+
+- [[https://github.com/FuelLabs/yulp][Yul+]] - a low-level, highly
+ efficient extension to Yul
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004245-internal_representation.org][internal representation]]

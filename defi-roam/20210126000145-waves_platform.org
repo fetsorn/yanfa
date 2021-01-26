@@ -1,0 +1,12 @@
+#+title: Waves Platform
+
+Waves Platform is a comprehensive blockchain platform that features fiat gateways, smart contracts, mobile wallet, token issuance, a DEX (decentralized exchange), and more.
+
+Consensus: Proof of Stake
+language: RIDE
+Website: wavesplatform.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+It is a crypto-platform for asset/custom token issuance, transfer, and trading on the blockchain. Waves’ technology is designed for companies and developers who want to leverage the security, auditability, verifiability and the trustless execution of transactions and programming logic
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

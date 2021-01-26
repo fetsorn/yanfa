@@ -1,0 +1,22 @@
+#+title: Corda
+
+Corda is an open-source blockchain platform that allows businesses to transact directly and in strict privacy with smart contracts. It reduces record-keeping and transaction costs by streamlining business processes.
+
+It is a flexible and agile platform that can scale to meet the business requirements. Applications built on Corda, CorDapps are designed and developed to transform businesses across a wide array of sectors, including healthcare, energy, insurance, finance and more.
+
+Features of the Corda blockchain platform that make it one of the ideal platforms:
+ - Privacy
+ - Open design
+ - Interoperability
+ - Agile and Flexible
+ - Open Development
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Corda, developed by R3, is an open source blockchain platform to record, manage and synchronise agreements and transfer value. It allows you to build interoperable blockchain networks that transact directly, in strict privacy.
+
+Consensus: Pluggable Consensus
+language: Kotlin, Java etc.
+Website: www.corda.net
+
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

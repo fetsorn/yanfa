@@ -1,0 +1,26 @@
+#+title: Stellar
+
+Stellar is an open blockchain network that allows the storing and moving of money. It facilitates you to create, trade and send digital representations of all forms of money, for example, dollars, bitcoin, pesos and a lot more.
+
+Over 69% of banks are currently experimenting with blockchain technology to make their services transparent, seamless, and secure. Stellar is one of the most scalable and significant blockchain platforms that can help build secure and fast fintech applications, tokens and digital assets representing financial assets.
+
+It is an open-source network for payments and currencies. It has no owner; if it has anything, it is owned by the public. It can handle millions of transactions every day. Like Ethereum and Bitcoin, Stellar depends on the blockchain to keep the network synced.
+
+A stellar blockchain platform can be used to issue your own assets, trade peer-to-peer tokens and transform currency while sending.
+
+Below are the significant features of the Stellar Blockchain Network:
+ - It has a decentralized and open database.
+ - It enables thousands of transactions in a second.
+ - It takes a confirmation time of only 3-5 seconds.
+ - The network allows multi signatures and smart contracts.
+ - It has a 1% fixed annual inflation.
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Stellar is open-source, distributed payments infrastructure using blockchain technology.
+
+Consensus: Stellar Consensus Protocol
+language: Go, Java, Javascript
+Website: www.stellar.org
+
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

@@ -1,0 +1,11 @@
+#+title: FSolidM
+
+- [[https://github.com/anmavrid/smart-contracts/tree/FSMGenerator][FSolidM]] -
+ framework for [[https://cps-vo.org/group/smartcontracts][visual
+ programming]] of Finite State Machines
+
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004413-domain_specific_language.org][domain specific language]]

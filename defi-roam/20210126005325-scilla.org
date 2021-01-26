@@ -1,0 +1,8 @@
+#+title: Scilla
+
+- [[https://scilla-lang.org][Scilla]] - an intermediate level language
+ for verified smart contracts (Zilliqa)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126000220-zilliqa.org][Zilliqa]]

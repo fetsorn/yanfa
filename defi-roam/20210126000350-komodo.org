@@ -1,0 +1,11 @@
+#+title: Komodo
+
+Komodo is a secure, independently scalable, and fully interoperable blockchain ecosystem that provides end-to-end blockchain technology solutions.
+
+Consensus: delayed Proof of Work (dPoW)
+language: Any
+Website: komodoplatform.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

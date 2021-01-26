@@ -1,0 +1,5 @@
+#+title: Chain Core
+
+This platform lets you manage financial assets through a permissioned Blockchain System. With applications mainly in the financial industry, Chain Core can manage any number of independent blockchains by maintaining their ledgers or can act as a blockchain client for different permissioned blockchains.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

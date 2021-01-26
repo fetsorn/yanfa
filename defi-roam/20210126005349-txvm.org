@@ -1,0 +1,6 @@
+#+title: TxVM
+
+- [[https://github.com/chain/txvm][TxVM]] (Chain)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]

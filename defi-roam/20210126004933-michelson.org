@@ -1,0 +1,8 @@
+#+title: Michelson
+
+- [[http://www.michelson-lang.com/][Michelson]] - a stack based and
+ strongly typed domain-specific language (Tezos)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126000115-tezos.org][Tezos]]

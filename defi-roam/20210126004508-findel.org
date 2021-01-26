@@ -1,0 +1,12 @@
+#+title: Findel
+
+- [[https://github.com/cryptolu/findel][Findel]] - a non Turing complete
+ financial DSL inspired by a
+ [[https://www.microsoft.com/en-us/research/publication/composing-contracts-an-adventure-in-financial-engineering/][S.P.Jones'
+ work]]
+
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004413-domain_specific_language.org][domain specific language]]

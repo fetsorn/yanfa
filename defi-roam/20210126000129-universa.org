@@ -1,0 +1,5 @@
+#+title: Universa
+
+Universa Protocol allows using cutting-edge technical advances such as IoT, BIM and escrow financing, which enable more transparent, trusted and faster transactions, thus granting an opportunity to link all the participants in the city digitization process. Universa mainnet is a global decentralized network offering extremely fast and secure enterprise-level blockchain and data storage services.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

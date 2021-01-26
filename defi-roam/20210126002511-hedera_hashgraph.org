@@ -1,0 +1,15 @@
+#+title: Hedera Hashgraph
+
+Hedera Hashgraph Platform is a lightning secure, fair and fast platform that does not require computing a heavy proof of work algorithm. It allows developers to develop new innovative and scalable decentralized applications.
+
+Smart contracts in the Hedera Hashgraph platform can be built dynamic just like any other software component. As the platform provides an optional mechanism that enables “binding arbitration”, the smart contracts deployed with a list of public keys of arbitrators can be edited to fix errors or add new features.
+
+Following are some of the features of the Hedera Hashgraph platform:
+ - Fast
+ - Fair
+ - Secure
+ - Implementation of public BFT Notary Service for Corda
+ - Connecting Hyperledger Fabric network to Hedera Consensus Service
+
+https://www.leewayhertz.com/top-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

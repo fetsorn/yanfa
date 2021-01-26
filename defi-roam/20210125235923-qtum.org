@@ -1,0 +1,12 @@
+#+title: Qtum
+
+A decentralized and open-source smart contracts platform and value transfer protocol. Qtum employs a decentralized governance protocol allowing for blockchain parameters like the block size, block time, gas schedules, and the minimum gas price for contracts to be modified without requiring a fork.
+
+Consensus: Proof of Stake
+language: Solidity
+Website: qtum.org/en
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Qtum is an open-sourced public blockchain platform equipped with UTXO. Qtum is PoS based with a Decentralized Governance Protocol (DGP) allowing specific blockchain settings to be modified by making use of smart contracts like increasing the block size without the need of a hard fork.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

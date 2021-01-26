@@ -1,0 +1,8 @@
+#+title: Sigma-State
+
+- [[https://github.com/ScorexFoundation/sigmastate-interpreter][Sigma-State]]
+ (Ergo)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126004429-ergo.org][Ergo]]

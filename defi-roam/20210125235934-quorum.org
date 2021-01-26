@@ -1,0 +1,5 @@
+#+title: Quorum
+
+It is a permissioned Ethereum based Blockchain platform. Ethereum rules the world of public Blockchains and it is only befitting to use the concept, scalability, crypto and the technological aspect of Ethereum in a permissioned way to equip enterprises with a platform they can rely on. It is open source and has decent community support from the Ethereum community.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

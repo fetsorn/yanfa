@@ -1,0 +1,8 @@
+#+title: Varna
+
+- [[https://github.com/aeternity/protocol/blob/master/contracts/varna.md][Varna]] -
+ a non Turing complete high-level language (Æternity)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005618-æternity_aeternity.org][Æternity Aeternity]]

@@ -1,0 +1,8 @@
+#+title: IELE
+
+- [[https://github.com/runtimeverification/iele-semantics][IELE]] - a
+ variant of LLVM specialized to execute smart contracts on the
+ blockchain
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]

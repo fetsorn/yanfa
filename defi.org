@@ -1,0 +1,29 @@
+#+TITLE: Defi
+
+* spec
+ - DEFI communities
+   - lobsterDAO
+   - defi telegram channel
+ - hedge funds
+ - summits
+   - solidity summit
+   - dubai summit
+ - defi
+   - MakerDAO
+   - Compound
+   - Uniswap
+   - Sushiswap
+   - Mooniswap
+   - Kyber
+   - Aave
+   - Yearn.Finance
+   - DODO
+   - Balancer
+   - Curve
+ - oracles
+   - chainlink
+ - stablecoins
+   - usdt
+   - usdc
+   - usdn
+ - erc20 tokens

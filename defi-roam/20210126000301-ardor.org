@@ -1,0 +1,12 @@
+#+title: Ardor
+
+Ardor is a blockchain-as-a-service-platform that evolved from the Nxt blockchain.
+
+Consensus: Proof of Stake
+language: Java
+Website: www.ardorplatform.org
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]
+
+[[file:20210126000407-nxt.org][Nxt]]

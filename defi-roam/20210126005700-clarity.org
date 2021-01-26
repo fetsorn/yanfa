@@ -1,0 +1,8 @@
+#+title: Clarity
+
+- [[https://blog.blockstack.org/introducing-clarity-the-language-for-predictable-smart-contracts/][Clarity]]
+ (Blockstack)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005711-blockstack.org][Blockstack]]

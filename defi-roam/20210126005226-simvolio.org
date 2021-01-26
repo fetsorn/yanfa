@@ -1,0 +1,7 @@
+#+title: Simvolio
+
+- [[https://apla.io/][Simvolio]] (Apla blockchain platform)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005236-apla.org][Apla]]

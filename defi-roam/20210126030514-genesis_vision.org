@@ -1,0 +1,6 @@
+#+title: genesis vision
+
+Genesis Vision (GVT) - смарт-контракты для доверительного управления активами в сфере бизнеса и финансов, акцент ставится на Genesis Vision - блокчейновая платформа, предназначенная для расширения и улучшения существующей системы доверительного
+https://altwiki.ru/coins/genesis-vision.html
+
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

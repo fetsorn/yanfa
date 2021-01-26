@@ -1,0 +1,21 @@
+#+title: Hyperledger Sawtooth
+
+Hyperledger Sawtooth provides a modular and flexible architecture that separates the core system from the application domain. Therefore, smart contracts can imply the business rules for applications without understanding the underlying design of the core system. It supports different consensus algorithms, including Proof of Elapsed Time (PoET) and Practical Byzantine Fault Tolerance (PBFT).
+
+It is an enterprise blockchain platform used for developing distributed ledger networks and applications. It aims at keeping ledgers distributed and smart contracts secure, specifically for enterprises. It streamlines blockchain app development as developers can specify business rules for their apps using their chosen language.
+
+Following are some of its features that distinguish from other blockchain platforms:
+ - Private networks with sawtooth permissioning feature
+ - Parallel transaction execution
+ - Ethereum contract compatibility with Seth
+ - Pluggable consensus algorithms
+ - Separation between the core system and application level
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Hyperledger Sawtooth is an enterprise blockchain platform for building distributed ledger applications and networks. Sawtooth is an open source project under the Hyperledger umbrella.
+
+Consensus: Proof of Elapsed Time (PoET)
+language: Python, C++, Go, Java, JavaScript, Rust etc.
+Website: www.hyperledger.org/projects/sawtooth
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

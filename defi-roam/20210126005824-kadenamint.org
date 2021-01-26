@@ -1,0 +1,9 @@
+#+title: Kadenamint
+
+- [[https://www.coindesk.com/cosmos-will-have-3-coding-languages-heres-why-that-matters-for-ethereum][Kadenamint]]
+ (Cosmos)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005744-cosmos.org][Cosmos]]
+[[file:20210126000058-tendermint.org][Tendermint]]

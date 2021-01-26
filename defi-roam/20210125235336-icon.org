@@ -1,0 +1,12 @@
+#+title: ICON
+
+ICON is a decentralized blockchain network where various blockchain-based independent Communities are connected to form a greater community. At the core of ICON is a high-performance blockchain loopchain.
+
+Consensus: Loop Fault Tolerance (LFT)
+language: Python
+Website: icon.foundation
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+ICON provides a decentralized network that allows independent blockchains with different governances to transact with one another without intermediaries. In simple words, It enables cross country payments through Blockchain(s) without depending on Fiats.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

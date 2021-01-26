@@ -1,0 +1,6 @@
+#+title: algorand
+
+Algorand is an open-source public blockchain based on a pure proof-of-stake consensus protocol that supports the scalability and transaction finality. Role-Based Asset Control in Algorand lets us use this Blockchain platform for numerous purposes involving asset transfer.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

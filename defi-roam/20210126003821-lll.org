@@ -1,0 +1,11 @@
+#+title: LLL
+
+[[https://lll-docs.readthedocs.io/en/latest/][LLL]] - a "low-level
+Lisp-like language" compiled to EVM bytecode
+([[https://media.consensys.net/an-introduction-to-lll-for-ethereum-smart-contract-development-e26e38ea6c23][blog
+post]], [[http://blog.syrinx.net/][series of blog posts]]) *
+
+No updates after 2017: *
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]

@@ -1,0 +1,12 @@
+#+title: Nxt
+Nxt is an advanced open source blockchain platform that includes many core-level features, such as a Decentralized Asset Exchange, Marketplace, and Voting system.
+
+Consensus: Proof of Stake
+language: -
+Website: nxtplatform.org
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]
+
+[[file:20210126000301-ardor.org][Ardor]]

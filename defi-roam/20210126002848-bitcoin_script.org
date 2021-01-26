@@ -1,0 +1,9 @@
+#+title: Bitcoin Script
+
+- [[https://en.bitcoin.it/wiki/Script][Bitcoin Script]] - a stack-based
+  non Turing complete Forth-like language used to write script that
+  determine whether a UTXO can be spent.
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]

@@ -1,0 +1,26 @@
+#+title: EOS
+
+EOS is a blockchain platform designed to develop scalable and secure dApps. It provides dApps’ hosting, smart contracts capability, decentralized storage of enterprise solutions to solve the scalability issues faced by Ethereum and Bitcoin.
+
+The EOS platform eliminates all users’ fees and accomplishes consensus by leveraging multithreading and delegated proof-of-stake algorithm. They have a dedicated community named “EOS forum,” where developers and investors can discuss the platform.
+
+Following are some of the features of the EOS blockchain that make it one of the reliable platforms:
+ - Usability
+ - Governance
+ - Multiprocessing
+ - Flexibility
+ - Measurability
+ - Upgradability
+ - Permission Schema
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+EOSIO is a free, open-source blockchain software protocol that provides developers and entrepreneurs with a platform on which to build, deploy and run high-performing decentralized applications.
+
+Consensus: Delegated Proof of Stake (dPoS)
+language: C++, WebAssembly
+Website: eos.io
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Ever heard of a developer-friendly Blockchain? Well EOS is one. Built for both public and private use cases, EOSIO is customizable to suit a wide range of business needs across industries
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

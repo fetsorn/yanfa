@@ -1,0 +1,9 @@
+#+title: Ivy
+
+- [[https://github.com/ivy-lang/ivy-bitcoin][Ivy]] - a non Turing
+  complete higher-level language that compiles to Bitcoin Script
+  ([[https://blog.chain.com/ivy-for-bitcoin-a-smart-contract-language-that-compiles-to-bitcoin-script-bec06377141a][announcement]])
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]

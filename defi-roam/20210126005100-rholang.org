@@ -1,0 +1,8 @@
+#+title: Rholang
+
+- [[https://github.com/rchain/rchain/tree/master/rholang][Rholang]] - a
+ reflective higher-order process calculus language (RChain)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005113-rchain.org][RChain]]

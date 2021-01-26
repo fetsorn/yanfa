@@ -1,0 +1,25 @@
+#+title: Tezos
+
+Tezos is an open-source and decentralized blockchain network that can perform peer-to-peer transactions and deploy smart contracts. It has a modular architecture and formal upgrade mechanism that allows its network to facilitate formal verification.
+
+Founded by Arthur Breitman and Kathleen Breitman, Tezos is designed to offer the safety and code correctness needed for digital assets and high-value use cases. It is a decentralized blockchain platform that is self-governing.
+
+Tezos is a smart contract and dApp platform, just like Ethereum, Waves, Neo, but its self-amending cryptographic mechanism makes it different from other platforms.
+
+Following are some of the features of the Tezos platform that distinguish it from other platforms:
+ - Self-amendment Protocol
+ - Delegated Proof of Stake Consensus Mechanism
+ - On-Chain Governance
+ - Smart Contracts and Formal Verification
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Tezos is a blockchain that can evolve by upgrading itself. Stakeholders vote on amendments to the protocol, including amendments to the voting procedure itself, to reach social consensus on proposals.
+
+Consensus: Proof of Stake
+language: Michelson
+Website: tezos.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Tezos is a technology for deploying a blockchain capable of modifying its own set of rules with minimal disruption to the network through an on-chain governance model. It utilizes a Proof-of-Stake based consensus model.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

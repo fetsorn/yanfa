@@ -1,0 +1,11 @@
+#+title: Wanchain
+
+Wanchain supports cross-chain transactions between mainstream public chains, between private chains, and between public and private chains.
+
+Consensus: Proof of Stake
+language: Solidity
+Website: wanchain.org
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

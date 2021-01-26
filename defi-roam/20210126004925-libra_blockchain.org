@@ -1,0 +1,4 @@
+#+title: Libra Blockchain
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

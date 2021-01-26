@@ -1,0 +1,7 @@
+#+title: Ledger Design Language
+
+- [[https://eprint.iacr.org/2018/416][Ledger Design Language]] - a
+ modeling language for describing public ledgers
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]

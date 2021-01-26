@@ -1,0 +1,9 @@
+#+title: BALZaC
+
+- [[https://blockchain.unica.it/balzac/docs/][BALZaC]] - a high-level
+  language based on the formal model proposed in
+  [[https://eprint.iacr.org/2017/1124.pdf][[AB+18FC]]]
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]
+
+https://github.com/s-tikhomirov/smart-contract-languages

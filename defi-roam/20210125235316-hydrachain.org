@@ -1,0 +1,5 @@
+#+title: HydraChain
+
+HydraChain is en extension of Ethereum. Leveraging the popularity and scalability of Ethereum it provides us with the creation of Blockchain-based applications by allowing users to develop smart contracts in Python.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

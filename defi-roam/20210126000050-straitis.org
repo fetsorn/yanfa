@@ -1,0 +1,12 @@
+#+title: Straitis
+
+Stratis offers full service capabilities for the development, deployment and management of enterprise blockchain applications and solutions utilizing C# on the .Net framework.
+
+Consensus: Proof of Stake
+language: C#
+Website: stratisplatform.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Straitis is a blockchain platform designed for particularly Windows/Microsoft environment which lets us develop Blockchain without having to configure our infrastructure. Essentially, every blockchain platform requires setting up of a network infrastructure which requires more effort and time then the actual development of the Blockchain and hence a platform like Straitis comes into play.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

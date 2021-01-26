@@ -1,0 +1,7 @@
+#+title: Flint
+
+[[https://github.com/flintlang/flint][Flint]] - a type-safe, contract-oriented programming language specifically designed for writing robust smart contracts on Ethereum *
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]

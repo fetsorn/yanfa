@@ -1,0 +1,10 @@
+#+title: L4
+
+[[https://youtu.be/Ufy8oM-Ou90][L4]] - a
+language "based on deontic modal logic", presented at Devcon 2 (Sep
+2016) *
+
+No updates after 2016: *
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]

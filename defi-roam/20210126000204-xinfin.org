@@ -1,0 +1,5 @@
+#+title: Xinfin
+
+Xinfin’s Blockchain platform along with its wallet is a Hybrid Blockchain platform which focuses on real-time Cross Border Trade and Finance. The XDC token is the underlying utility token of the XinFin hybrid blockchain and acts as a settlement mechanism for dApps built on the XinFin hybrid blockchain.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

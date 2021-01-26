@@ -1,0 +1,12 @@
+#+title: NEM
+
+NEM’s blockchain platform was designed and coded from the ground up for scale and speed.
+
+Consensus: Proof of Importance
+language: Any
+Website: nem.io
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+NEM’s permissioned private blockchain delivers industry-leading transaction rates for internal ledgers. And its revolutionary consensus mechanism and the Supernode program ensure that NEM’s open, public blockchain can grow without ever compromising throughput or stability.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

@@ -1,0 +1,13 @@
+#+title: Bahr, Berthold and Elsman language
+
+- the language from
+ [[https://link.springer.com/article/10.1007/s12599-017-0507-z][the
+ paper]] by Egelund-Müller et al
+
+http://hiperfit.dk/pdf/icfp15-contracts-final.pdf
+https://github.com/bem7/ledger-contracts/
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004413-domain_specific_language.org][domain specific language]]

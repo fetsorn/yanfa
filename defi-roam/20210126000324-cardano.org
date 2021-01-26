@@ -1,0 +1,11 @@
+#+title: Cardano
+Cardano, the first blockchain platform to evolve out of a scientific philosophy and a research-first driven approach, is built by a global team of leading academics and engineers.
+
+Consensus: Proof of Stake
+language: Plutus
+Website: www.cardano.org/en/home
+
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

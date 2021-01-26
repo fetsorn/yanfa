@@ -1,0 +1,11 @@
+#+title: Simplicity
+
+- [[https://github.com/ElementsProject/simplicity][Simplicity]] - a
+  typed functional programming language utilizing combinators
+  [[https://medium.com/@danrobinson/understanding-simplicity-implementing-a-smart-contract-language-in-30-lines-of-haskell-827521bfeb4d][blog
+  post]], [[https://iohk.io/blog/simplicity-and-michelson/][another
+  one]]
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]

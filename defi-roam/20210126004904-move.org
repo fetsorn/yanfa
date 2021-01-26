@@ -1,0 +1,8 @@
+#+title: Move
+
+- [[https://developers.libra.org/docs/move-paper][Move]] - a safe and
+ flexible programming language for the Libra Blockchain
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126004925-libra_blockchain.org][Libra Blockchain]]

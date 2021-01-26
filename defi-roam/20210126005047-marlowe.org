@@ -1,0 +1,9 @@
+#+title: Marlowe
+
+- [[https://iohk.io/en/blog/posts/2018/12/11/marlowe-financial-contracts-on-blockchain/][Marlowe]] -
+ a domain-specific language for smart contract language embedded in
+ Plutus (Cardano)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126000324-cardano.org][Cardano]]

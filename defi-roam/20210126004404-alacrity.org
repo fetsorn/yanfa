@@ -1,0 +1,9 @@
+#+title: Alacrity
+
+- [[https://github.com/AlacrisIO/alacrity][Alacrity]] - a DSL for
+ simple, formally-verified DApps
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004413-domain_specific_language.org][domain specific language]]

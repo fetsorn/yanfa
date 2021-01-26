@@ -1,0 +1,12 @@
+#+title: Smilo
+
+Smilo is the hybrid blockchain platform that warrants transparency whilst protecting individual’s personal data.
+
+Consensus: Smilo BFT+
+language: lidity, Javascript, Java, Python
+Website:
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Smilo is built on the concept of hybrid Blockchain. In a way, there was a need for the scalability and transparency of the public Blockchain while not being void of security and privacy of an organisation on the whole which gave birth to the concept of hybrid Blockchain. Smilo offers a blockchain platform which supports a combination of hybrid transactions, hybrid smart contracts and hybrid decentralised applications.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

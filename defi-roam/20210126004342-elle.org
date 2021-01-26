@@ -1,0 +1,12 @@
+#+title: Elle
+
+- [[https://elle.readthedocs.io/en/latest/syntax.html#][Elle]] - The
+ Elle source language, also known as Elle-Core, captures structured
+ programming abstractions and enables their translation to Ethereum EVM
+ bytecode through a verified
+ [[https://elle.readthedocs.io/en/latest/implementation.html][compiler]].
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004245-internal_representation.org][internal representation]]

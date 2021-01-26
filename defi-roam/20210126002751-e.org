@@ -1,0 +1,12 @@
+#+title: E
+
+http://www.erights.org/
+secure distributed persistent language
+for capability-based smart contracting
+
+Referenced by Nick Szabo in - [[http://nakamotoinstitute.org/contract-language/][A formal language
+  for analyzing contracts]]
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+

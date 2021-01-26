@@ -1,0 +1,11 @@
+#+title: Serpent
+
+[[https://github.com/ethereum/serpent/tree/ad53fa2a8a496448d58ef9137959b4a1e86b14d7][Serpent]] -
+a Python-like high-level language compiled to EVM (deprecated due to
+[[https://blog.zeppelin.solutions/serpent-compiler-audit-3095d1257929][security
+issues with the compiler]]) *
+
+No updates after 2017: *
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]

@@ -1,0 +1,9 @@
+#+title: ADICO
+
+- [[https://papers.christopherfrantz.org/pdf/FrantzNowostawski2016_Smart_Contracts_nADICO.pdf][ADICO]] -
+ a domain-specific language to support the contract modeling process
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004413-domain_specific_language.org][domain specific language]]

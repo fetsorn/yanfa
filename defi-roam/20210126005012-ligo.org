@@ -1,0 +1,8 @@
+#+title: LIGO
+
+- [[https://medium.com/tezos/introducing-ligo-a-new-smart-contract-language-for-tezos-233fa17f21c7][LIGO]]
+ (Tezos)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126000115-tezos.org][Tezos]]

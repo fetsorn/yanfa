@@ -1,0 +1,12 @@
+#+title: Lisk
+
+Lisk is a blockchain application platform created to bring blockchain technology to the world through an SDK (Sidechain Development Kit) written in JavaScript.
+
+Consensus: Delegated Proof of Stake (DPoS)
+language: Javascript
+Website: lisk.io
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Lisk focuses on the effortless development of Blockchain applications and hence Lisk SDK comes with developer tools, an active community and energy-efficient Blockchain network.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

@@ -1,0 +1,4 @@
+#+title: sidechain
+
+    - A sidechain is a separate blockchain that is attached to its parent blockchain using a two-way peg. The two-way peg enables interchangeability of assets at a predetermined rate between the parent blockchain and the sidechain.
+      https://hackernoon.com/what-are-sidechains-1c45ea2daf3

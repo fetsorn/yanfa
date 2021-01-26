@@ -1,0 +1,17 @@
+#+title: Tron
+
+Tron is a decentralized blockchain platform that aims to develop a decentralized web. Like Ethereum, Tron allows dApp developers to create and leverage complete protocols via smart contracts on the blockchain.
+
+The Tron platform can handle 2000 transactions per second, which put it on par as compared to major payment processors like Paypal. It has zero transaction fees.
+
+Tron depends on the Delegated-Proof-of-Stake consensus mechanism to secure the blockchain. A DPoS is similar to a proof-of-stake consensus mechanism that allows users to earn passive income whenever they stake their holdings in a network wallet.
+
+Features of Tron Blockchain Network:
+ - High Scalability
+ - High Availability
+ - High Throughput
+ - Compatibility with EVM
+ - Multi-language extension
+ - Eliminating counterfeit chain
+https://www.leewayhertz.com/top-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

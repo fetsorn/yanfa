@@ -1,0 +1,11 @@
+#+title: Aion
+
+Aion is a third-generation blockchain network that will enable an organization to Federate, Scale and Spoke.
+
+Consensus: Proof-of-Intelligence Staking
+language: Aion, Solidity
+Website: aion.network
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

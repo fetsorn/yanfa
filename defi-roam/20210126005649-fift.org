@@ -1,0 +1,9 @@
+#+title: Fift
+
+- [[https://test.ton.org/fiftbase.pdf][Fift]] - a stack-based general
+ purpose programming language optimized for TON Blockchain smart
+ contracts (TON)
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126005618-æternity_aeternity.org][Æternity Aeternity]]

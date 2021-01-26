@@ -1,0 +1,10 @@
+#+title: Plutus
+
+- [[https://github.com/input-output-hk/plutus][Plutus]] - a pure
+ functional language with user-defined data types and polymorphism
+ (Cardano); compiles to Plutus Core
+ ([[https://youtu.be/IqA-mI2olFA][video]])
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126000324-cardano.org][Cardano]]

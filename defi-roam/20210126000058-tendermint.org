@@ -1,0 +1,5 @@
+#+title: Tendermint
+
+Tendermint is an Application BlockChain Interface(ABCI) which powers the Cosmos Blockchain platform. In any Blockchain, the basic requirement is of a consensus and the peer-to-peer network configurations but it is obvious that we don’t need to develop these if we want to incorporate Blockchain in our business so Tendermint built an engine which works like an engine for a car. You have to design the layout and the purpose of the car with Cosmos and Tendermint will power it with its engine.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

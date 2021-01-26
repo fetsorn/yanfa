@@ -1,0 +1,12 @@
+#+title: Multichain
+
+MultiChain is an off­the­shelf platform for the creation and deployment of private blockchains, either within or between organizations.
+
+Consensus: -
+language: Any
+Website: www.multichain.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+MultiChain helps organizations to build and deploy blockchain applications with speed. It is being widely used including projects like SAP for Pharmaceuticals, TruBudget, Tagcash KYC, ILSBlockchain
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

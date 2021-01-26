@@ -1,0 +1,6 @@
+#+title: Coco
+
+Coco, Confidential Consortium, is a framework released by Microsoft which aims primarily at improving scalability by providing 1000+ transaction handling. It is compatible with all blockchain platform like Hyperledger Sawtooth, Ethereum, Corda, and Quorum. It also provides Trusted Execution Environments.
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

@@ -1,0 +1,13 @@
+#+title: Zilliqa
+
+Zilliqa is a high throughput public blockchain platform designed to scale to thousands of transactions per second.
+
+Consensus: Practical byzantine fault tolerance (PBFT)
+language: Scilla
+Website: zilliqa.com
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+With its own smart contract language scilla and being the first public Blockchain to implement sharding in its testnet, Zilliqa is a high-throughput blockchain platform that achieves over 2,828 transactions per second. Moreover, the scalable throughput ensures that Zilliqa’s capacity can continue to grow with the growing number of nodes.
+Additionally, I would like to mention 20 more Blockchain platforms which are currently being developed or are in the stage of early deployment.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

@@ -1,0 +1,25 @@
+#+title: Openchain
+
+Openchain is an open-source distributed ledger technology designed for organizations willing to issue and manage digital assets in a secure, robust and scalable manner. It uses a different consensus than Bitcoin-based systems, i.e., Partitioned Consensus. Every instance of Openchain has only one authority validating transactions.
+
+Rather than one single central ledger, each organization controls its own Opechain instance to connect. Since it uses a client-server architecture, it is more reliable and efficient than P2P architecture. Also, there is no miner involved in the Openchain blockchain network; therefore, the asset administrator directly validates free and instant transactions.
+
+Here are some of the features of the Openchain blockchain network:
+ - Modular Design
+ - Free transactions
+ - Highly scalable
+ - 2-Way Peg
+ - Unified API
+ - Smart Contracts Functionality
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Openchain is an open source distributed ledger technology that is suited for organizations wishing to issue and manage digital assets in a robust, secure and scalable way.
+
+Consensus: Partionned Consensus
+language: Any
+Website: www.openchain.org
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Openchain is an open-source distributed ledger technology suited for organizations wishing to issue and manage digital assets in a robust, secure and scalable way. It provides a single authority for verification of transactions. Every organisation has its sole instance of the ledger containing transactions which can be connected if needed.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

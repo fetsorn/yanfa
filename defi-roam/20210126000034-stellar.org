@@ -1,0 +1,5 @@
+#+title: Stellar
+
+Stellar introduces a way to combine the fiat currency with the digital currency. It is a decentralised platform which lets you hold, send, and swap digital versions of everyday currencies. fast, cross-border transactions between any pair of currencies can be done using Stellar through Its native asset, a digital currency called lumen (XLM).
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

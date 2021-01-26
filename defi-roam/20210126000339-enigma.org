@@ -1,0 +1,10 @@
+#+title: Enigma
+
+Enigma is a permissionless peer-to-peer network. With Enigma, “smart contracts” become “secret contracts”, where input data is kept hidden from nodes in the Enigma network that execute code.
+
+Consensus: Proof of Stake
+language: Solidity
+Website: enigma.co
+
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

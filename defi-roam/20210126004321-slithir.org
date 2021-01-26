@@ -1,0 +1,11 @@
+#+title: SlithIR
+
+- [[https://github.com/crytic/slither/wiki/SlithIR][SlithIR]] - an
+ intermediate representation that is used by Slither to enable
+ high-precision analysis via a simple API. It supports taint and value
+ tracking to enable detection of complex patterns.
+
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126001430-ethereum.org][Ethereum]]
+[[file:20210126004245-internal_representation.org][internal representation]]

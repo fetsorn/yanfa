@@ -1,0 +1,6 @@
+#+title: Sapio
+
+- [[https://www.coindesk.com/this-new-coding-language-could-help-unlock-bitcoins-smart-contract-potential][Sapio]]
+https://github.com/s-tikhomirov/smart-contract-languages
+[[file:20210126002830-smart_contract_languages.org][smart contract languages]]
+[[file:20210126002936-bitcoin.org][Bitcoin]]

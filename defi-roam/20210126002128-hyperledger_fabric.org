@@ -1,0 +1,27 @@
+#+title: Hyperledger Fabric
+Hyperledger Fabric is proposed as a foundation for building apps or solutions with a modular architecture. It allows components, including membership services and consensus, to be plug-and play. It has a wide range of modular and versatile design that meets various industrial use cases.
+
+One of the significant features of Hyperledger Fabric is the enablement of a network of networks. Members of the Fabric network work together, but because businesses want to keep some of their data to remain private, they usually maintain separate relationships within their networks.
+
+For example, a buyer may with different sellers, selling the same product. The transactional relationship between buyers and sellers should be private and not visible to all sellers. It can be made possible via the “channels” feature in Hyperledger Fabric.
+
+Instead of an open and permissionless system, Fabric provides a secure and scalable platform that supports confidential contracts and private transactions.
+
+Here are some of the features of Hyperledger Fabric that makes it different from other platforms:
+ - Highly modular
+ - Low latency of finality
+ - Support for Solidity and EVM
+ - Multi-language smart contract support
+ - Pluggable Consensus
+ - Queryable Data
+ - Multi-language smart contract support
+
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+Hyperledger Fabric is a blockchain framework implementation and one of the Hyperledger projects hosted by The Linux Foundation. It allows components such as consensus and membership services to be plug-and-play.
+
+Consensus: SOLO, Kafka
+language: Go, Java
+Website: www.hyperledger.org/projects/fabric
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

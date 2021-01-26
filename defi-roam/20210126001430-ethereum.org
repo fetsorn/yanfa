@@ -1,0 +1,23 @@
+#+title: Ethereum
+
+Ethereum is one of the leading blockchain platforms that has a native cryptocurrency called ETH or Ether. Developers use Ethereum to build new applications related to financial apps, decentralized markets, games, cryptocurrency wallets and more.
+
+They have the largest community with core protocol developers, cypherpunks, crypto-economic researchers and mining organizations. It aims to eliminate internet third-parties who save data and track financial instruments.
+
+Below are some of the features of the Ethereum platform:
+ - Smart Contracts Functionality
+ - Turing Completeness
+ - Permissioning
+ - Privacy
+ - Rapid Deployment
+ - Tokenization
+https://www.leewayhertz.com/top-blockchain-platforms/
+
+
+Ethereum, developed by the Ethereum Foundation, is a decentralized platform that runs smart contracts.
+
+Consensus: Proof of Work
+language: Solidity, Serpent, LLL
+Website: www.ethereum.org
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

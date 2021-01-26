@@ -1,0 +1,6 @@
+#+title: Credits
+
+
+Credits is an open-source, fully decentralized blockchain software protocol. It introduces a unique new consensus algorithm — PoA (Proof of Agreement) based on BFT conception. Best suited for use cases involving microtransactions, mass financial payments and tokens issuing.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]

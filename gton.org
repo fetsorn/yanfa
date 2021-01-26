@@ -1,0 +1,212 @@
+#+TITLE: Gton
+
+* gton paper
+G R A V I T O N
+Cooperative Assets Tokenization and Funds Management Economic Game
+Aleksei Pupyshev & VenLab Team
+** Abstract
+This article reveals the design of a system for algorithmic tokenization of non-digital assets and stock indices, which works on the basis of collateralization by a digital currency portfolio, dynamically managed by holders of the governance token. The system is fully decentralized and governed by its participants and stakeholders.
+
+Certain details pertaining to algorithms, formulas and parameters can be supplemented or altered without significantly affecting the described concept.
+
+Graviton is an amalgamation of the most prominent aspects from the tokenomics of decentralized finance (DeFi) projects which are in demand at the time of this writing: Synthetix, MakerDAO, Yearn.finance, Balancer and Neutrino Protocol. The tokenomics and the design principles of the latter are used as a foundation for Graviton.
+
+** Introduction
+The advancement and stability of most crypto economies is contingent upon a continuous growth of the market. Unlike those systems, a system based on Graviton can expand or remain economically stable in a falling market. The economy of such a system should tend to be highly diversified and geared towards extending the variety of trading, investment and staking strategies; and with an increase in the number of active participants, transactions, as well as the volatility of tokenized assets, the total generated profit of the system should increase as well.
+
+Tokenization of national currencies, commodities, and some digital currencies is currently a fairly popular topic in the field of decentralized finance. Custodial stablecoins and tokenized assets are not generally accepted as a part of DeFi, although they are notably useful as an intermediate step which is essential for mass adoption. Algorithmic synthetic financial instruments are becoming increasingly more liquid and suitable for speculative purposes and investment from both crypto traders and experts in trading and investments unrelated to the DeFi industry and cryptocurrencies. This observation, in turn, reveals a set of narratives that seem fit as a rationale for decentralized public blockchain networks and smart contracts, not simply as a store-of-value, but as a novel technology platform that can serve as the basis for the entire financial sector and related areas of the economy.
+
+Let us briefly examine the main players in the market of algorithmic synthetic asset tokenization:
+
+** MakerDAO
+To date, the project has issued a single tokenized asset pegged to the US dollar: $DAI (also, see its legacy version: $SAI). The tokenization mechanism is straightforward and is based on a so-called collateralized debt position (CDP) model, or Vault. In order to issue $100 $DAI (100 $DAI tokens), one of the crypto assets allowed by the governor needs to be sent as collateral. For instance, this collateral can be $ETH, $BAT, or another asset in the equivalent of $200 or more, depending on the current system parameters and overcollateralization requirements for a certain type of issued asset. There are two versions of the protocol: 1. the original Single-Collateral DAI ($SAI), which allows one to issue a stablecoin by locking the native token of the Ethereum platform ($ETH) as collateral, 2. and Multi-Collateral DAI ($DAI), which can use other popular digital assets of the ERC20 standard as collateral. The overcollateralization parameter may be different for each currency, depending on its liquidity and volatility. The list of allowed assets is voted for by the holders of the $MKR governance token.
+
+The stability and pegging of the $DAI price to 1 USD is provided algorithmically through the mechanism of vault liquidation, with the release of liquid cryptoassets and the buyback of a cheap stablecoin from the market with a profit. Similarly, but in the opposite direction, stabilization from the increased price works by issuance and dump on the market. Since Ethereum and other assets always retain some economic value and liquidity, this mechanism seems stable.
+
+The authors of this paper think that one of the notable and useful features of MakerDAO is multicollateralization of stablecoins.
+** Synthetix
+Synthetix (SNX) is the most popular protocol for tokenization and trading of synthetic assets, which offers the market a whole range of financial instruments: stablecoins ($sUSD, $sEUR, $sAUD), indices ($sDEFI), commodities ($sXAU, $sXAG, $sOIL), and other cryptocurrencies ($sBTC, $sXRP, $sLINK) and short indexes ($iBTC, $iOIL) for speculation and hedging.
+
+The protocol token, $SNX, is used as a collateralization token for Synthetix. In order to issue a synthetic asset, it is necessary to lock $SNX in staking with x7 times overcollateralization. While in staking, a reward is accrued on the token, consisting of inflation of the token’s supply, and of commissions from activity on the built-in decentralized synthetics exchange.
+
+The strengths and interesting aspects of Synthetix, according to the authors of this paper, are the variety of tokenized assets and seamless exchange capabilities of the protocol, due to the presence of a common pool of collateralization (in contrast to MakerDAO, where the collateral is distributed across different vaults). Another useful model is an incentive for participants to stake $SNX and receive payments accrued from trading activity.
+
+** Neutrino Protocol
+
+Neutrino is an asset tokenization protocol that uses the native token of the public blockchain $WAVES as collateral. $USDN, the first stablecoin issued on the protocol, is pegged to the US dollar. The design and architecture of Neutrino were developed by the authors of this paper in conjunction with the core team of Waves and Waves Exchange. At this moment,  Waves.Exchange solely manages, maintains and develops the protocol. To a certain extent, the Graviton system is a modified multi-collateral and multi-peg version of the Neutrino protocol.
+
+The basic asset in Neutrino is $USDN. To issue this asset, one needs to swap $WAVES tokens on a smart contract to receive an equivalent amount of $USDN, minus the fee for the operation, the size of which is determined by a decentralized governance of holders of $NSBT, the governance token of Neutrino. When conducting a swap of $100 in $WAVES tokens, ~100$ USDN will be issued. That is, no overcollateralization is required to issue the stablecoin.
+
+#+ATTR_ORG: :width 500
+[[./gton1.png]]
+
+The $WAVES tokens that are stored on the smart contract as collateral are sent to LPoS (Leased Proof-of-Stake) staking to generate rewards in the native token, which are converted into $USDN and paid out to all stablecoin stakers.
+
+Algorithmic stability and peg of $USDN to $1 is provided by two types of arbitrage, in which a reverse exchange of stablecoin for $WAVES tokens occurs at the current market price of $WAVES.
+
+#+ATTR_ORG: :width 500
+[[./gton2.png]]
+
+Economic stability and over-collateralization is achieved through a governance and recapitalization token called $NSBT, or Neutrino System Base Token. From all trading operations of minting/redeeming $USDN, a commission is charged, which is transferred to all stakers of $NSBT as a staking reward. The $NSBT itself is issued only by sending $WAVES to the collateral pool, increasing the overcollateralization coefficient.
+
+In the native terms of the Neutrino protocol, the Backing Ratio (BR) is crucial, which is measured as the ratio of the dollar-equivalent capitalization of $WAVES locked in the collateral to the supply of the issued $USDN. If BR is equal to 1, there is an equilibrium, or 1-to-1 collateralization of the stablecoin. If BR<1, there is a deficit. Finally, if BR>1 then the stablecoin is overcollateralized.
+
+Such a system needs to be steered towards an increasingly larger overcollateralization. This allows to safeguard the system against the risk of volatility of the collateral asset and increase the profitability of staking. To ensure this, a design is proposed for issuing new $ NSBT, which depends on the following formula:
+
+IssuePrice (BR, Supply) = c * (SupplyMaxSupply - Supply)m* eb * (BR-1), where {c, m, b} - const
+
+Due to the aforementioned dependence, system players and traders are incentivised to recapitalize the system in case of a declining BR, while with an increase in demand for utility and the generation of new $NSBT on the market, the issue price of this token will increase, that is, the Bonding Curve mechanism for tokenomics of $NSBT comes into play.
+
+#+ATTR_ORG: :width 500
+[[./gton3.png]]
+
+The Neutrino protocol has additional extensions that expand its functionality and allow for the creation of new types of synthetic assets that also have staking functionality: 1. DeFo (Decentralized Forex) assets, tied to national currencies, for example $EURn, $JPYn, $CNYn; 2. sDeFo (Speculative DeFo) assets linked to volatile assets, cryptocurrencies and indices, for example $BTCn, $ZECn, $TSLAn. For the former, the $USDN itself acts as a collateral, staked and stored in DeFo liquidity pools, creating overcollateralization and generating commissions. For the latter, $NSBT itself is used as collateral with 5x overcollateralization or higher.
+
+** Yearn Finance
+
+Yearn.finance is a decentralized algorithmic hedge fund with a rich ecosystem of financial products, services and integrations. The basic aim of the protocol is to achieve capital efficiency and balancing between other protocols in order to maximize profits for the so-called yVault owners. Yearn.finance provides an algorithmic stablecoin yUSD, which is a derivative over the liquidity pools of other stablecoins in the Curve protocol.
+
+Yearn.finance is not a tokenization protocol. However, a useful aspect is the optimal management strategy for digital assets that maximizes profits for yVault owners.
+
+** Key Terms
+
+Below are the main terms used in the Graviton protocol:
+
+DeFo - assets that are not overly volatile in relation to general notion of stable value. These are the US dollar, euro, gold and even SDRs. Unlike in the Neutrino protocol, the US dollar stablecoin is not given any special status within Graviton, and the collateral liquidity pool is common to all issued assets. The system denominates capitalization metrics in US dollars, but this can be altered at any time in favor of another stable measure of value, for example, SDR (Special Drawing Rights).
+
+sDeFo - speculative assets such as cryptocurrencies, stock indices and commodities.
+
+iDeFo - indices with inverse volatility to the corresponding sDeFo.
+
+$PFOLIO - ETF-like (Exchange Traded Fund) assets represented by a basket of cryptocurrencies which are used as a combined collateral asset for Graviton stablecoins, a portfolio managed by governance token holders. It is analogous to the $WAVES token of the Neutrino protocol.
+
+$GTON - recapitalization, governance, collateral for sDeFo/iDeFo assets and staking token, analogous to the $NSBT token of the Neutrino protocol.
+
+$USDg - synthetic stablecoin pegged to US dollar value (same logic for $EURg, $XAUg).
+
+$BTCvg - synthetic volatile asset pegged to the $BTC price (same logic for $TSLAvg, $SPXvg, $ZECvg), collateralized by $GTON.
+
+$BTCig - inverse synthetic volatile asset pegged to 1/BTC price (same logic for $TSLAig, $SPXig, $ZECig), collateralized by $ GTON
+
+BR - Backing Ratio calculated as the ratio of the dollar capitalization of $PFOLIO tokens locked in collateral to the capitalization of assets issued by DeFo.
+** Protocol Design
+
+As noted earlier, Graviton is a modified multicollateral and multipeg version of the Neutrino protocol.
+
+#+ATTR_ORG: :width 500
+[[./gton5.png]]
+
+The basic building block of the protocol is the $PFOLIO token, which represents an ownership share within the pool of cryptocurrencies locked on a smart contract, which constitute the portfolio. This token is analogous to Actively-Managed ETFs from the field of traditional finance (TradFi). Each asset in the portfolio, for example $ETH, $LINK, $USDN, has its share and acceptable limits as a percentage of the portfolio capitalization expressed in $. To release $100 of the $PFOLIO token, a user needs to lock $100 of any of the selected pool tokens within the pool, if the minting would not violate the limits of the shares for each asset set by the governance.
+
+Moreover, $PFOLIO token is a tradable liquid asset on its own; trading operations can occur between the pooled assets, generating rewards for the pool's shareholders through swap and slippage fees. $PFOLIO assets can be staked within other DeFi services and farming pools, generating returns.
+By analogy with the Neutrino protocol, to release a synthetic DeFo asset (e.g. $USDg), a user can lock $PFOLIO tokens on a smart contract and issue $100 DeFo tokens for $100 of locked tokens, for example $100 USDg or $83 EURg.
+
+In order for DeFo assets to retain their peg, there exist two arbitrage opportunities, akin to Neutrino. For instance, if $USDg costs less than $1, then a cheaper stablecoin is bought from the market and redeemed into $PFOLIO. All pooled assets can subsequently be withdrawn in the current proportion at the time of withdrawal. This means that $USDg bought for $97 can be exchanged for $100 in liquid tokens that make up the $PFOLIO index.
+
+#+ATTR_ORG: :width 500
+[[./gton6.png]]
+
+All DeFo assets have a yield nominated in themselves, however, the rewards are accrued from the stack of tokens that make up the $PFOLIO pool. The holders of the $GTON token manage the investment strategies and portfolio in an effort to maximize the evaluation of the $PFOLIO token and its investment attractiveness.
+
+In order for the system to strive for overcollateralization, as well as ensure an efficient decentralized management of the protocol, the design of the $GTON token completely repeats the logic of the $NSBT token, including the formula IssuePrice (BR, Supply) given above. For any issue/redeem activity and trading operations between synthetic assets, staking rewards are generated for the holders of the $GTON token. The holders also manage, through portfolio rebalancing, how stable BR is and how it changes, thereby affecting the entire $GTON economy.
+
+#+ATTR_ORG: :width 500
+[[./gton7.png]]
+
+Tokenization of sDeFo and iDeFo assets is performed using the Vaults mechanism (CDP - collateral debt positions), similar to the MakerDAO project with a larger collateralization coefficient for the collateral token, which is $GTON for sDeFo/iDeFo.
+
+The inflation mechanics of the $GTON token ensures a gradual decay over time, stimulating the execution of transactions useful for the system, such as collateral pledging in sDeFo/iDeFo, voting, and rebalancing of assets in the portfolio.
+** Incentives
+
+The Graviton system can be seen as an economic game in which various agents participate and make transactions, cooperating with each other to yield the most winning strategies for managing collateral capital, as well as assets demanded for tokenization.
+
+Below are potential roles of system participants and the corresponding motivational components for them:
+
+$ PFOLIO holders / minters / buyers:
+	- staking / farming rewards in $PFOLIO token from asset management
+	- value growth from optimal portfolio management strategies
+	- trading fees from arbitrage traders
+
+$ GTON holders / minters / buyers:
+	- motivated to commit to successful $PFOLIO portfolio management (BR)
+	- rewarded from $PFOLIO as DeFo collateral issue / redeem operations
+	- benefiting from sDeFo demand and issue / redeem operations
+	- governance power
+
+$ USDg, $ EURg, $ XAUg (DeFo assets) holders / minters / buyers:
+	- low volatility exposure
+	- staking rewards in stable coins proportionally to $ PFOLIO performance
+	- instant liquidity via $ PFOLIO redeem ops
+
+$ BTCvg, $ SNPvg, $ ZECvg (sDeFo assets) holders / minters / buyers :
+	- investment opportunities and speculations
+	- staking rewards in desired assets
+	- $ GVAULTs as long margin on $ GTON
+
+$ BTCig, $ SNPig, $ ZECig (iDeFo assets) holders / minters / buyers:
+	- hedge opportunities and speculations against sDeFo assets
+	- $ gVault as long leverage on $ GTON
+
+Each individual member of the system can combine many roles simultaneously and change them over time, based on the market situation or personal trading and investment strategies. All participants in the system benefit from an optimal management of the assets that make up $PFOLIO, as well as its composition itself, since it is a guarantee of security, liquidity and growth of the system's capitalization, independent of any one asset or even a larger market trend (for example, a bearish trend).
+** Portfolio Management
+
+The most crucial and critical aspect of the Graviton system is how efficiently the portfolio is managed and how its profitability and the evaluation of the $PFOLIO token is maximized. The liquidity pool is a group of related assets similar to liquidity pools in the Balancer protocol. Traders and arbitrage players can exchange tokens within the pool and pay a commission to the pool.
+
+#+ATTR_ORG: :width 500
+[[./gton8.png]]
+
+However, unlike Balancer, pools in the Graviton system are not AMM (Automated Market Maker) pools, but rather PMM (Proactive Market Maker, like DODO) pools, in which restrictions are imposed on the relative asset balances, while the asset prices themselves are set by oracles based on the aggregated market rate.
+
+#+ATTR_ORG: :width 500
+[[./gton9.png]]
+
+Consider a portfolio of four assets {A, B, C, D}. Holders of the governance token ($GTON) can set the min/max share parameters for each asset that makes up $PFOLIO. Only the acceptable limits for the shares of each of the assets are set. Within these limits, exchange and arbitrage traders can perform trading operations (TRADE), paying a commission based on the trading fee (for example 0.5%) and the slippage fee (based on the PMM aka DODO formula).
+
+#+ATTR_ORG: :width 500
+[[./gton10.png]]
+
+When a new token (E) needs to be introduced into the portfolio, a voting procedure that results in a consensus of the $GTON holders will add the new token with a non-zero max supply.
+
+#+ATTR_ORG: :width 500
+[[./gton11.png]]
+
+In order to delist the token (D) and remove it from the portfolio, it is necessary to set the Maximum limit to zero. Next, a REBALANCE request will appear and a portion of $GTON will be awarded as a reward for operations that will contribute to the rebalancing.
+
+#+ATTR_ORG: :width 500
+[[./gton12.png]]
+
+Otherwise, the addition of tokens to the liquidity pool occurs in such a way that if it does not violate the Min-Max rules, it executes immediately and results in the generation (MINT) of $PFOLIO tokens.
+
+By burning tokens on a smart contract (REDEEM), one can get a group of tokens that make up a portfolio in proportion which is current at the moment of the redeem operation.
+** Governance
+
+For effective management and a quick response to market changes or incidents, Graviton provides for the implementation of several different protocols within one system. The principles of governance of Graviton are based on the principles of liquid democracy, in which a participant can either vote independently for system updates if their token stake is large enough, that is, above the threshold for nominating a delegate, or they can delegate their vote proportionally to the stake to any expert (or delegate).
+
+#+ATTR_ORG: :width 500
+[[./gton13.png]]
+
+There are three types of governance actions within Graviton:
+1. Proposals,
+2. Tuning,
+3. Migrations.
+In order to introduce any changes into the protocol, e.g., a new parameter into the system, asset or blockchain / sidechain network, an appropriate proposal is required and a vote needs to reach a quorum.
+
+In order to change the existing parameters of the system, it is sufficient for any of the delegates to vote at any time for the new value of the parameter. The parameter value itself is defined as a new weighted average (EMA - Exponential Moving Average), where the alpha parameter is proportional to the delegated voting power. For example, this is how the Min-Max parameters are dynamically controlled.
+Each delegate has a so-called voting balance consisting of delegated voting tokens. At the same time, all $GTON tokens remain in the possession of their holders or gVault tokens, representing a certain number of locked tokens to back sDeFo / iDeFo assets. Delegates can revoke a delegate’s voting power if they do not agree with the delegate's decisions observed for a certain period of time.
+Smart contracts can be updated through migration, nominated by a vote of the developers who own the multi-signature keys.
+
+** Risk Factors
+The system can be exposed to the following risks:
+1. Systemic risk of hacking smart contracts;
+2. Risk of a governance attack and deliberately ineffective $PFOLIO management;
+3. Risk of faulty oracles that supply prices;
+4. Risk associated with assets that make up the $PFOLIO index;
+5. Risk associated with a sharp downfall in the market, panic sales and liquidations;
+
+All the risks are minimized through the launch strategy for Graviton-based products, as well as by trust in the main partners of the project, their reputation and infrastructure. In addition, many risks are mitigated by introducing limits on some operations, for example, the issue of DeFo assets depending on BR and other restrictions.
+** Narratives
+The fundamental idea of ​​the described economic game is that, unlike most crypto economies, the success of which implies a sustained growth of the market, the Graviton system can grow or remain economically stable in a falling market. The economy of the system is diversified and stimulates the growth of the number of trading, investment and staking strategies; with an increase in the number of active participants, transactions and the volatility of tokenized assets, the total generated profit of the system grows as well. There are no restrictions on which blockchain networks the assets constituting $PFOLIO can be issued on, since they can all be integrated via cross-chain communication protocols (for example, Gravity protocol).
+
+The growing demand for DeFo, sDeFo, iDeFo tools can stimulate the demand for the $PFOLIO and $GTON tokens, and when reaching a certain point, it can produce a positive effect on the demand for the assets that make up $PFOLIO. Overall, this factor can move the DeFi industry towards greater efficiency, economic activity and the transfer of useful tools from TradFi to a new technology platform represented by decentralized decision making, smart contracts and liquidity networks across various integrated platforms.
+
+Just as the Internet has now conquered all economic spheres and has become the engine of economic progress, Graviton, a Cooperative Assets Tokenization and Funds Management Economic Game, mirrors the entire financial sector within one protocol.

@@ -1,0 +1,12 @@
+#+title: IOTA
+
+IOTA is a next generation permissionless distributed ledger that utilizes a novel invention, called a “Tangle”, at its core.
+
+Consensus: Coordinator
+language: Rust, Go, Javascript, Java, C++
+Website: www.iota.org
+https://www.technoduet.com/a-comprehensive-list-of-blockchain-platforms/
+
+Blockchain for IoT has been given a new definition with this unique Blockchain platform. IOTA enables transactions between machines and IoT devices. The ledger uses a cryptocurrency called mIOTA to account for transactions in its network. IOTA’s Tangle is a system of nodes used for confirming transactions and the crown jewel of IOTA.
+https://medium.com/wikidlt/a-complete-list-of-blockchain-platforms-2020-49cf01ee6688
+[[file:20210125215722-blockchain_platforms.org][blockchain platforms]]
