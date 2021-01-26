@@ -6,8 +6,9 @@
   - pfolio
     - write reasons from dodo recording
   - uniswap pool, balancer pool, dodo pool
-    - PPool only two assets, from balancer
-  - prixing BlnPaper vs DODOPaper vs UniPaper
+    - PPool only three assets, from balancer
+    - since both tokens can get shortage from swapping for thirds, they can race for regression targets and one can become even more depleted and not useful until arbitraged
+  - pricing BlnPaper vs DODOPaper vs UniPaper
     - PPricing only spot price from Dodo and mean from balancer
     - formulas for locational marginal price aka spot price
     - http://www2.econ.iastate.edu/tesfatsi/DerivationLMP.HLLTAC.pdf
