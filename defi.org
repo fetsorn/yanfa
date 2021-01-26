@@ -1,5 +1,40 @@
 #+TITLE: Defi
-
+      
+* tasks
+ - graph roam and host at linode
+ - story
+  - pfolio
+    - write reasons from dodo recording
+  - uniswap pool, balancer pool, dodo pool
+    - PPool only two assets, from balancer
+  - prixing BlnPaper vs DODOPaper vs UniPaper
+    - PPricing only spot price from Dodo and mean from balancer
+    - formulas for locational marginal price aka spot price
+    - http://www2.econ.iastate.edu/tesfatsi/DerivationLMP.HLLTAC.pdf
+    - PPool only AmountOut, take pmm from DODOPaper for each token, weights andmean from BlnPaper for pool
+  - contracts $DODO anf $BLN
+    - bpool vs dodopair vs UniPair
+      - PPool only provide liquidity for all assets, token map and weights from bpool, + what dodo needs
+    - lptokens BLNtoken vs dodotoken
+    - bfactory vs dodoZoo vs UniFactory
+      - PFactory from Bfactory
+    - BMath vs DODOMath vs UniswapV2Library
+      - PPool only amountOut, oracles from DODOMath, sum for tokens from bmath
+  - DODO governance & Balancer governance
+    - P governance? g governance?
+ - slides
+   - pfolio
+   - pools
+   - pricing
+   - contracts
+   - governance
+ - uml schemes
+   - BPool uml & DODOpair
+   - bfactory & dodozoo
+   - PPool & PFactory
+ - code
+ - tests
+ 
 * spec
  - DEFI communities
    - lobsterDAO
