@@ -7,9 +7,12 @@
     - write reasons from dodo recording
   - uniswap pool, balancer pool, dodo pool
     - PPool only three assets, from balancer
-    - since both tokens can get shortage from swapping for thirds, they can race for regression targets and one can become even more depleted and not useful until arbitraged
+    - since both tokens can get shortage from swapping for third, they can race for regression targets and one can become even more depleted and not useful until arbitraged
   - pricing BlnPaper vs DODOPaper vs UniPaper
-    - marginal price from dodo will have to be rewritten as you can no longer rely on either shortage, presume that omthe other side would also lose overflow, instead you should compare shortages or even distance from regression target in either way and better price. in dodo always equilibrium, in balancer never equilibrium, shortage travels between assets?
+    - marginal price from dodo will have to be rewritten as you can no longer rely on either shortage, presume that other side would also lose overflow, instead you should compare shortages or even distance from regression target in either way and better price. in dodo always equilibrium, in balancer never equilibrium, shortage travels between assets?
+    - without constant product we lose balancer trait that share of trade after trade doesn't change. instead, share changes with each trade
+    - with constant product there is slippage and impermanent loss but infinite liquidity. With market price there is no slippage or loss but liquidity is finite. we want to constraint market price so that trades that deplete liquidity are discouraged. dodo constraints market price by relation between staked and reserve balance, or regression target and current balance, it presumes that shortage in B accompanies overflow in B. We cannot coinstrain market price like in dodo because with multiple assets both balances in a pair can have shortage and instead of keeping staked balance regression would further destabilize portfolio, with one shortage covered with another depleted balance. instead, we want to motivate arbitrage from the highest surplus to the lowest shortage. for that after calculating relation of staked to current you need to calculate relation between those fractions as well.
+    - with dodo it would be more profitable to sell token in shortage, but it wouldbe equally profitable to swapit for another depleted asset and one with surplus. to support swapping base shortage with quote surplus we might compare shortages of base and quote, two quotes, or base with average deviation from regression targets in the pool.
     - PPricing only spot price from Dodo and mean from balancer
     - formulas for locational marginal price aka spot price
     - http://www2.econ.iastate.edu/tesfatsi/DerivationLMP.HLLTAC.pdf
