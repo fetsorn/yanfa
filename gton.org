@@ -94,7 +94,7 @@ BR - Backing Ratio calculated as the ratio of the dollar capitalization of $PFOL
 As noted earlier, Graviton is a modified multicollateral and multipeg version of the Neutrino protocol.
 
 #+ATTR_ORG: :width 500
-[[./gton5.png]]
+[[../raw/gton5.png]]
 
 The basic building block of the protocol is the $PFOLIO token, which represents an ownership share within the pool of cryptocurrencies locked on a smart contract, which constitute the portfolio. This token is analogous to Actively-Managed ETFs from the field of traditional finance (TradFi). Each asset in the portfolio, for example $ETH, $LINK, $USDN, has its share and acceptable limits as a percentage of the portfolio capitalization expressed in $. To release $100 of the $PFOLIO token, a user needs to lock $100 of any of the selected pool tokens within the pool, if the minting would not violate the limits of the shares for each asset set by the governance.
 
@@ -104,14 +104,14 @@ By analogy with the Neutrino protocol, to release a synthetic DeFo asset (e.g. $
 In order for DeFo assets to retain their peg, there exist two arbitrage opportunities, akin to Neutrino. For instance, if $USDg costs less than $1, then a cheaper stablecoin is bought from the market and redeemed into $PFOLIO. All pooled assets can subsequently be withdrawn in the current proportion at the time of withdrawal. This means that $USDg bought for $97 can be exchanged for $100 in liquid tokens that make up the $PFOLIO index.
 
 #+ATTR_ORG: :width 500
-[[./gton6.png]]
+[[../raw/gton6.png]]
 
 All DeFo assets have a yield nominated in themselves, however, the rewards are accrued from the stack of tokens that make up the $PFOLIO pool. The holders of the $GTON token manage the investment strategies and portfolio in an effort to maximize the evaluation of the $PFOLIO token and its investment attractiveness.
 
 In order for the system to strive for overcollateralization, as well as ensure an efficient decentralized management of the protocol, the design of the $GTON token completely repeats the logic of the $NSBT token, including the formula IssuePrice (BR, Supply) given above. For any issue/redeem activity and trading operations between synthetic assets, staking rewards are generated for the holders of the $GTON token. The holders also manage, through portfolio rebalancing, how stable BR is and how it changes, thereby affecting the entire $GTON economy.
 
 #+ATTR_ORG: :width 500
-[[./gton7.png]]
+[[../raw/gton7.png]]
 
 Tokenization of sDeFo and iDeFo assets is performed using the Vaults mechanism (CDP - collateral debt positions), similar to the MakerDAO project with a larger collateralization coefficient for the collateral token, which is $GTON for sDeFo/iDeFo.
 
@@ -153,27 +153,27 @@ Each individual member of the system can combine many roles simultaneously and c
 The most crucial and critical aspect of the Graviton system is how efficiently the portfolio is managed and how its profitability and the evaluation of the $PFOLIO token is maximized. The liquidity pool is a group of related assets similar to liquidity pools in the Balancer protocol. Traders and arbitrage players can exchange tokens within the pool and pay a commission to the pool.
 
 #+ATTR_ORG: :width 500
-[[./gton8.png]]
+[[../raw/gton8.png]]
 
 However, unlike Balancer, pools in the Graviton system are not AMM (Automated Market Maker) pools, but rather PMM (Proactive Market Maker, like DODO) pools, in which restrictions are imposed on the relative asset balances, while the asset prices themselves are set by oracles based on the aggregated market rate.
 
 #+ATTR_ORG: :width 500
-[[./gton9.png]]
+[[../raw/gton9.png]]
 
 Consider a portfolio of four assets {A, B, C, D}. Holders of the governance token ($GTON) can set the min/max share parameters for each asset that makes up $PFOLIO. Only the acceptable limits for the shares of each of the assets are set. Within these limits, exchange and arbitrage traders can perform trading operations (TRADE), paying a commission based on the trading fee (for example 0.5%) and the slippage fee (based on the PMM aka DODO formula).
 
 #+ATTR_ORG: :width 500
-[[./gton10.png]]
+[[../raw/gton10.png]]
 
 When a new token (E) needs to be introduced into the portfolio, a voting procedure that results in a consensus of the $GTON holders will add the new token with a non-zero max supply.
 
 #+ATTR_ORG: :width 500
-[[./gton11.png]]
+[[../raw/gton11.png]]
 
 In order to delist the token (D) and remove it from the portfolio, it is necessary to set the Maximum limit to zero. Next, a REBALANCE request will appear and a portion of $GTON will be awarded as a reward for operations that will contribute to the rebalancing.
 
 #+ATTR_ORG: :width 500
-[[./gton12.png]]
+[[../raw/gton12.png]]
 
 Otherwise, the addition of tokens to the liquidity pool occurs in such a way that if it does not violate the Min-Max rules, it executes immediately and results in the generation (MINT) of $PFOLIO tokens.
 
@@ -183,7 +183,7 @@ By burning tokens on a smart contract (REDEEM), one can get a group of tokens th
 For effective management and a quick response to market changes or incidents, Graviton provides for the implementation of several different protocols within one system. The principles of governance of Graviton are based on the principles of liquid democracy, in which a participant can either vote independently for system updates if their token stake is large enough, that is, above the threshold for nominating a delegate, or they can delegate their vote proportionally to the stake to any expert (or delegate).
 
 #+ATTR_ORG: :width 500
-[[./gton13.png]]
+[[../raw/gton13.png]]
 
 There are three types of governance actions within Graviton:
 1. Proposals,

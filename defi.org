@@ -1,46 +1,17 @@
 #+TITLE: Defi
-      
+
 * tasks
- - graph roam and host at linode
- - story
-  - pfolio
-    - write reasons from dodo recording
-  - uniswap pool, balancer pool, dodo pool
-    - PPool only three assets, from balancer
-    - since both tokens can get shortage from swapping for third, they can race for regression targets and one can become even more depleted and not useful until arbitraged
-  - pricing BlnPaper vs DODOPaper vs UniPaper
-    - marginal price from dodo will have to be rewritten as you can no longer rely on either shortage, presume that other side would also lose overflow, instead you should compare shortages or even distance from regression target in either way and better price. in dodo always equilibrium, in balancer never equilibrium, shortage travels between assets?
-    - without constant product we lose balancer trait that share of trade after trade doesn't change. instead, share changes with each trade
-    - with constant product there is slippage and impermanent loss but infinite liquidity. With market price there is no slippage or loss but liquidity is finite. we want to constraint market price so that trades that deplete liquidity are discouraged. dodo constraints market price by relation between staked and reserve balance, or regression target and current balance, it presumes that shortage in B accompanies overflow in B. We cannot coinstrain market price like in dodo because with multiple assets both balances in a pair can have shortage and instead of keeping staked balance regression would further destabilize portfolio, with one shortage covered with another depleted balance. instead, we want to motivate arbitrage from the highest surplus to the lowest shortage. for that after calculating relation of staked to current you need to calculate relation between those fractions as well.
-    - with dodo it would be more profitable to sell token in shortage, but it wouldbe equally profitable to swapit for another depleted asset and one with surplus. to support swapping base shortage with quote surplus we might compare shortages of base and quote, two quotes, or base with average deviation from regression targets in the pool.
-    - PPricing only spot price from Dodo and mean from balancer
-    - formulas for locational marginal price aka spot price
-    - http://www2.econ.iastate.edu/tesfatsi/DerivationLMP.HLLTAC.pdf
-    - PPool only AmountOut, take pmm from DODOPaper for each token, weights andmean from BlnPaper for pool
-  - contracts $DODO anf $BLN
-    - bpool vs dodopair vs UniPair
-      - PPool only provide liquidity for all assets, token map and weights from bpool, + what dodo needs
-    - lptokens BLNtoken vs dodotoken
-    - bfactory vs dodoZoo vs UniFactory
-      - PFactory from Bfactory
-    - BMath vs DODOMath vs UniswapV2Library
-      - PPool only amountOut, oracles from DODOMath, sum for tokens from bmath
-  - DODO governance & Balancer governance
-    - P governance? g governance?
- - slides
-   - pfolio
-   - pools
-   - pricing
-   - contracts
-   - governance
- - uml schemes
-   - BPool uml & DODOpair
-   - bfactory & dodozoo
-   - PPool & PFactory
- - code
- - tests
- 
-* spec
+ - add pricing problems to report
+ - add pricing solutions to report
+ - add contract umls to report
+ - add governance to report
+ - outline balancer docs
+ - outline balancer whitepaper
+ - outline balancer contracts
+ - list hedge funds
+ - move defi projects to roam
+ - move tokens to roam
+** move to roam
  - DEFI communities
    - lobsterDAO
    - defi telegram channel
@@ -67,3 +38,264 @@
    - usdc
    - usdn
  - erc20 tokens
+
+* project management
+** pfolio
+*** pfolio structure
+   #+begin_quote
+The basic building block of the protocol is the $PFOLIO token, which represents an ownership share within the pool of cryptocurrencies locked on a smart contract, which constitute the portfolio. This token is analogous to Actively-Managed ETFs from the field of traditional finance (TradFi). Each asset in the portfolio, for example $ETH, $LINK, $USDN, has its share and acceptable limits as a percentage of the portfolio capitalization expressed in $. To release $100 of the $PFOLIO token, a user needs to lock $100 of any of the selected pool tokens within the pool, if the minting would not violate the limits of the shares for each asset set by the governance.
+
+Moreover, $PFOLIO token is a tradable liquid asset on its own; trading operations can occur between the pooled assets, generating rewards for the pool's shareholders through swap and slippage fees. $PFOLIO assets can be staked within other DeFi services and farming pools, generating returns.
+...
+All DeFo assets have a yield nominated in themselves, however, the rewards are accrued from the stack of tokens that make up the $PFOLIO pool. The holders of the $GTON token manage the investment strategies and portfolio in an effort to maximize the evaluation of the $PFOLIO token and its investment attractiveness.
+   #+end_quote
+*** pfolio management
+   #+begin_quote
+The most crucial and critical aspect of the Graviton system is how efficiently the portfolio is managed and how its profitability and the evaluation of the $PFOLIO token is maximized. The liquidity pool is a group of related assets similar to liquidity pools in the Balancer protocol. Traders and arbitrage players can exchange tokens within the pool and pay a commission to the pool.
+
+#+ATTR_ORG: :width 500
+[[../raw/gton8.png]]
+
+However, unlike Balancer, pools in the Graviton system are not AMM (Automated Market Maker) pools, but rather PMM (Proactive Market Maker, like DODO) pools, in which restrictions are imposed on the relative asset balances, while the asset prices themselves are set by oracles based on the aggregated market rate.
+
+#+ATTR_ORG: :width 500
+[[../raw/gton9.png]]
+
+Consider a portfolio of four assets {A, B, C, D}. Holders of the governance token ($GTON) can set the min/max share parameters for each asset that makes up $PFOLIO. Only the acceptable limits for the shares of each of the assets are set. Within these limits, exchange and arbitrage traders can perform trading operations (TRADE), paying a commission based on the trading fee (for example 0.5%) and the slippage fee (based on the PMM aka DODO formula).
+
+#+ATTR_ORG: :width 500
+[[../raw/gton10.png]]
+
+When a new token (E) needs to be introduced into the portfolio, a voting procedure that results in a consensus of the $GTON holders will add the new token with a non-zero max supply.
+
+#+ATTR_ORG: :width 500
+[[../raw/gton11.png]]
+
+In order to delist the token (D) and remove it from the portfolio, it is necessary to set the Maximum limit to zero. Next, a REBALANCE request will appear and a portion of $GTON will be awarded as a reward for operations that will contribute to the rebalancing.
+
+#+ATTR_ORG: :width 500
+[[../raw/gton12.png]]
+
+Otherwise, the addition of tokens to the liquidity pool occurs in such a way that if it does not violate the Min-Max rules, it executes immediately and results in the generation (MINT) of $PFOLIO tokens.
+
+By burning tokens on a smart contract (REDEEM), one can get a group of tokens that make up a portfolio in proportion which is current at the moment of the redeem operation.
+
+   #+end_quote
+** graviton
+   #+begin_quote
+By analogy with the Neutrino protocol, to release a synthetic DeFo asset (e.g. $USDg), a user can lock $PFOLIO tokens on a smart contract and issue $100 DeFo tokens for $100 of locked tokens, for example $100 USDg or $83 EURg.
+
+In order for the system to strive for overcollateralization, as well as ensure an efficient decentralized management of the protocol, the design of the $GTON token completely repeats the logic of the $NSBT token, including the formula IssuePrice (BR, Supply) given above. For any issue/redeem activity and trading operations between synthetic assets, staking rewards are generated for the holders of the $GTON token. The holders also manage, through portfolio rebalancing, how stable BR is and how it changes, thereby affecting the entire $GTON economy.
+   #+end_quote
+** staking
+   #+begin_quote
+All DeFo assets have a yield nominated in themselves, however, the rewards are accrued from the stack of tokens that make up the $PFOLIO pool. The holders of the $GTON token manage the investment strategies and portfolio in an effort to maximize the evaluation of the $PFOLIO token and its investment attractiveness.
+
+   #+end_quote
+** sDeFo & iDeFo
+   #+begin_quote
+In order for DeFo assets to retain their peg, there exist two arbitrage opportunities, akin to Neutrino. For instance, if $USDg costs less than $1, then a cheaper stablecoin is bought from the market and redeemed into $PFOLIO. All pooled assets can subsequently be withdrawn in the current proportion at the time of withdrawal. This means that $USDg bought for $97 can be exchanged for $100 in liquid tokens that make up the $PFOLIO index.
+...
+All DeFo assets have a yield nominated in themselves, however, the rewards are accrued from the stack of tokens that make up the $PFOLIO pool. The holders of the $GTON token manage the investment strategies and portfolio in an effort to maximize the evaluation of the $PFOLIO token and its investment attractiveness.
+...
+Tokenization of sDeFo and iDeFo assets is performed using the Vaults mechanism (CDP - collateral debt positions), similar to the MakerDAO project with a larger collateralization coefficient for the collateral token, which is $GTON for sDeFo/iDeFo.
+
+The inflation mechanics of the $GTON token ensures a gradual decay over time, stimulating the execution of transactions useful for the system, such as collateral pledging in sDeFo/iDeFo, voting, and rebalancing of assets in the portfolio.
+#+end_quote
+** governance
+#+begin_quote
+For effective management and a quick response to market changes or incidents, Graviton provides for the implementation of several different protocols within one system. The principles of governance of Graviton are based on the principles of liquid democracy, in which a participant can either vote independently for system updates if their token stake is large enough, that is, above the threshold for nominating a delegate, or they can delegate their vote proportionally to the stake to any expert (or delegate).
+
+#+ATTR_ORG: :width 500
+[[../raw/gton13.png]]
+
+There are three types of governance actions within Graviton:
+1. Proposals,
+2. Tuning,
+3. Migrations.
+In order to introduce any changes into the protocol, e.g., a new parameter into the system, asset or blockchain / sidechain network, an appropriate proposal is required and a vote needs to reach a quorum.
+
+In order to change the existing parameters of the system, it is sufficient for any of the delegates to vote at any time for the new value of the parameter. The parameter value itself is defined as a new weighted average (EMA - Exponential Moving Average), where the alpha parameter is proportional to the delegated voting power. For example, this is how the Min-Max parameters are dynamically controlled.
+Each delegate has a so-called voting balance consisting of delegated voting tokens. At the same time, all $GTON tokens remain in the possession of their holders or gVault tokens, representing a certain number of locked tokens to back sDeFo / iDeFo assets. Delegates can revoke a delegate’s voting power if they do not agree with the delegate's decisions observed for a certain period of time.
+Smart contracts can be updated through migration, nominated by a vote of the developers who own the multi-signature keys.
+#+end_quote
+* team management
+** code
+http://juanreyero.com/article/emacs/org-teams.html
+#+begin_src elisp
+(setq org-agenda-custom-commands
+      '(("h" "Work todos" tags-todo
+         "-personal-doat={.+}-dowith={.+}/!-TASK"
+         ((org-agenda-todo-ignore-scheduled t)))
+        ("H" "All work todos" tags-todo "-personal/!-TASK-MAYBE"
+         ((org-agenda-todo-ignore-scheduled nil)))
+        ("A" "Work todos with doat or dowith" tags-todo
+         "-personal+doat={.+}|dowith={.+}/!-TASK"
+         ((org-agenda-todo-ignore-scheduled nil)))
+        ("j" "TODO dowith and TASK with"
+         ((org-sec-with-view "TODO dowith")
+          (org-sec-where-view "TODO doat")
+          (org-sec-assigned-with-view "TASK with")
+          (org-sec-stuck-with-view "STUCK with")))
+        ("J" "Interactive TODO dowith and TASK with"
+         ((org-sec-who-view "TODO dowith")))))
+(setq org-tags-exclude-from-inheritance '("prj")
+      org-stuck-projects '("+prj/-MAYBE-DONE"
+                           ("TODO" "TASK") ()))
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "DarkOrange1" :weight bold))
+        ("MAYBE" . (:foreground "sea green"))
+        ("DONE" . (:foreground "light sea green"))
+        ("CANCELLED" . (:foreground "forest green"))
+        ("TASK" . (:foreground "blue"))))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)" "CANCELLED(c)")
+        (sequence "TASK(f)" "|" "DONE(d)")
+        (sequence "MAYBE(m)" "|" "CANCELLED(c)")))
+
+(defvar org-sec-with "nobody"
+  "Value of the :with: property when doing an
+   org-sec-tag-entry. Change it with org-sec-set-with,
+   set to C-c w")
+
+(defvar org-sec-where ""
+  "Value of the :at: property when doing an
+   org-sec-tag-entry. Change it with org-sec-set-with,
+   set to C-c W")
+
+(defvar org-sec-with-history '()
+  "History list of :with: properties")
+
+(defvar org-sec-where-history '()
+  "History list of :where: properties")
+
+
+(defun org-sec-set-with ()
+  "Changes the value of the org-sec-with variable for use
+   in the next call of org-sec-tag-entry."
+  (interactive)
+  (setq org-sec-with (read-string "With: " nil
+                                  'org-sec-with-history "")))
+(global-set-key "\C-cw" 'org-sec-set-with)
+
+(defun org-sec-set-where ()
+  "Changes the value of the org-sec-where variable for use
+   in the next call of org-sec-tag-entry."
+  (interactive)
+  (setq org-sec-where
+        (read-string "Where: " nil
+                     'org-sec-where-history "")))
+(global-set-key "\C-cW" 'org-sec-set-where)
+
+
+(defun org-sec-set-dowith ()
+  "Sets the value of the dowith property."
+  (interactive)
+  (let ((do-with
+         (read-string "Do with: "
+                      nil 'org-sec-dowith-history "")))
+    (unless (string= do-with "")
+      (org-entry-put nil "dowith" do-with))))
+(global-set-key "\C-cd" 'org-sec-set-dowith)
+
+(defun org-sec-set-doat ()
+  "Sets the value of the doat property."
+  (interactive)
+  (let ((do-at (read-string "Do at: "
+                            nil 'org-sec-doat-history "")))
+    (unless (string= do-at "")
+      (org-entry-put nil "doat" do-at))))
+(global-set-key "\C-cD" 'org-sec-set-doat)
+
+(defun org-sec-tag-entry ()
+  "Adds a :with: property with the value of org-sec-with if
+   defined, an :at: property with the value of org-sec-where
+   if defined, and an :on: property with the current time."
+  (interactive)
+  (save-excursion
+    (org-entry-put nil "on" (format-time-string
+                             (org-time-stamp-format 'long)
+                             (current-time)))
+    (unless (string= org-sec-where "")
+      (org-entry-put nil "at" org-sec-where))
+    (unless (string= org-sec-with "nobody")
+      (org-entry-put nil "with" org-sec-with))))
+(global-set-key "\C-cj" 'org-sec-tag-entry)
+
+(defun join (lst sep &optional pre post)
+  (mapconcat (function (lambda (x)
+                         (concat pre x post)))
+             lst sep))
+
+(defun org-sec-with-view (par &optional who)
+  "Select tasks marked as dowith=who, where who
+   defaults to the value of org-sec-with."
+  (org-tags-view '(4) (join (split-string (if who
+                                              who
+                                            org-sec-with))
+                            "|" "dowith=\"" "\"")))
+
+(defun org-sec-where-view (par)
+  "Select tasks marked as doat=org-sec-where."
+  (org-tags-view '(4) (concat "doat={" org-sec-where "}")))
+
+(defun org-sec-assigned-with-view (par &optional who)
+  "Select tasks assigned to who, by default org-sec-with."
+  (org-tags-view '(4)
+                 (concat (join (split-string (if who
+                                                 who
+                                               org-sec-with))
+                               "|")
+                         "/TASK")))
+
+(defun org-sec-stuck-with-view (par &optional who)
+  "Select stuck projects assigned to who, by default
+   org-sec-with."
+  (let ((org-stuck-projects
+         `(,(concat "+prj+"
+                    (join (split-string (if who
+                                            who
+                                          org-sec-with)) "|")
+                    "/-MAYBE-DONE")
+           ("TODO" "TASK") ())))
+    (org-agenda-list-stuck-projects)))
+
+(defun org-sec-who-view (par)
+  "Builds agenda for a given user.  Queried. "
+  (let ((who (read-string "Build todo for user/tag: "
+                          "" "" "")))
+    (org-sec-with-view "TODO dowith" who)
+    (org-sec-assigned-with-view "TASK with" who)
+    (org-sec-stuck-with-view "STUCK with" who)))
+#+end_src
+** Open areas :program:
+**** TASK Win-win scenario for tremendous success :john:
+    :PROPERTIES:
+    :on:       <2009-12-04 Fri 11:49>
+    :with:     john
+    :END:
+    Leveraging on our existing assets.
+**** Capitalize on previous challenges :prj:sue:
+****** TASK Figure out what the previous challenges were
+      :PROPERTIES:
+      :on:       <2009-12-04 Fri 12:04>
+      :with:     alex
+      :END:
+      And who was promoted.
+****** TASK Look up "capitalize" in the dictionary
+**** Success strategy looking forward :prj:sue:
+    The strategy looking backwards already in place.
+**** TODO And why are we doing this, again?
+    :PROPERTIES:
+    :dowith:   sue
+    :END:
+    Shouldn't we build a win-win scenario for tremendous
+    success leveraging on our success strategy looking
+    forward, while capitalizing on our existing assets as we
+    move forward into the next quarter?
+
+** graviton :program:
+*** report of PFOLIO :fetsorn:
+*** test deploy (neutrino?) to avalanche and evm-like :shamil:simanov:
+*** neutrino presentation animation :regina:
+*** metamask sign :sharkanov:
