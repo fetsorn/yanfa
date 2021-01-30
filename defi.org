@@ -1,13 +1,6 @@
 #+TITLE: Defi
 
 * tasks
- - add pricing problems to report
- - add pricing solutions to report
- - add contract umls to report
- - add governance to report
- - outline balancer docs
- - outline balancer whitepaper
- - outline balancer contracts
  - list hedge funds
  - move defi projects to roam
  - move tokens to roam
@@ -119,6 +112,8 @@ In order to change the existing parameters of the system, it is sufficient for a
 Each delegate has a so-called voting balance consisting of delegated voting tokens. At the same time, all $GTON tokens remain in the possession of their holders or gVault tokens, representing a certain number of locked tokens to back sDeFo / iDeFo assets. Delegates can revoke a delegate’s voting power if they do not agree with the delegate's decisions observed for a certain period of time.
 Smart contracts can be updated through migration, nominated by a vote of the developers who own the multi-signature keys.
 #+end_quote
+** media
+ - lobsters
 * team management
 ** code
 http://juanreyero.com/article/emacs/org-teams.html
