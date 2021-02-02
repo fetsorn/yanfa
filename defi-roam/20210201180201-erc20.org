@@ -1,0 +1,2 @@
+#+title: erc20
+[[file:20210201180206-erc_standarts.org][erc standarts]]

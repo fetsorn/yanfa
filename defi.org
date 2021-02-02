@@ -2,37 +2,27 @@
 
 * tasks
  - list hedge funds
- - move defi projects to roam
- - move tokens to roam
-** move to roam
- - DEFI communities
-   - lobsterDAO
-   - defi telegram channel
- - hedge funds
- - summits
-   - solidity summit
-   - dubai summit
- - defi
-   - MakerDAO
-   - Compound
-   - Uniswap
-   - Sushiswap
-   - Mooniswap
-   - Kyber
-   - Aave
-   - Yearn.Finance
-   - DODO
-   - Balancer
-   - Curve
- - oracles
-   - chainlink
- - stablecoins
-   - usdt
-   - usdc
-   - usdn
- - erc20 tokens
 
 * project management
+** gravity
+ - polka-gravity gateways
+ - avalanche native avax (native token)
+ - erc20 gateways
+ - nsbt erc20 outstaking
+ - gravity nodes governance tool
+ - gravity treasury
+ - delegation gateways (sign waves to via eth account)
+ - gravity hackathon
+   Мы в целом определились с активностями по разработке гравити в Q1/Q2:
+1. Интеграции с Аваланшем (в несколько стадий процесс: в итоге $avax будет на waves чейне, когда у них появятся аналоги юнисвопа, то и waves/usdn/nsbt туда выкатим - но план минимум это $avax в вейвсе запустить).
+2. Запуск ERC20 gateways в блокчейн вейвс (тут поступим хитро и обкатаем прод на популярных токенах бинанс чейна и после оптимизиации работы с газом, начнем один за другим открывать гейтвеи для ERC20 - начнем с $CRV думаю в проде).
+3. Интеграция гравити и polkadot: $dot гейтвеи в вейвс/эфир, как wrapped токены
+4. nsbt erc20 автостейкинг, который уже обсуждали в приницпе
+5. delegation гейтвей - это через гравити возможность транзакции в waves подписывать из эфировского аккаунта (используя escdverify метод в райде). Крутая фича очень, если получится сделать экспириенс как у Perpetual Protocol, который забирает депозиты из эфир аккаунта, но транзы делает в блокчейне xDAI.
+6. Гавернанс гравити нод тул (минимум 5 нод не связаных с вейвс (а партнеров/комьюнити) нужно будет поставить и дальше быстрее ращиряться уже)
+7. Treasury - которое будет аккумулировать коммисии из граивти и потом их распределять как описано в вайтпеппер. Поще всего этот модуль сделать будет уже непосредственно в вейвс чейне с использованием масспейментов. Не совсем чейн агностик правда, но пофиг, зато быстро и надежно, потом можно будет усовершенстовать будет.
+8. Операционка по хакатону гравити (до апреля).
+обернем в открытый звонок сделаем для Q&A, прозрачности и статусов по этим majors.
 ** pfolio
 *** pfolio structure
    #+begin_quote
@@ -74,7 +64,7 @@ Otherwise, the addition of tokens to the liquidity pool occurs in such a way tha
 By burning tokens on a smart contract (REDEEM), one can get a group of tokens that make up a portfolio in proportion which is current at the moment of the redeem operation.
 
    #+end_quote
-** graviton
+** eiva
    #+begin_quote
 By analogy with the Neutrino protocol, to release a synthetic DeFo asset (e.g. $USDg), a user can lock $PFOLIO tokens on a smart contract and issue $100 DeFo tokens for $100 of locked tokens, for example $100 USDg or $83 EURg.
 
