@@ -247,6 +247,16 @@ library SafeERC20 {
     }
 }
 
+interface IDODOLpToken {
+    function mint(address user, uint256 value) external;
+
+    function burn(address user, uint256 value) external;
+
+    function balanceOf(address owner) external view returns (uint256);
+
+    function totalSupply() external view returns (uint256);
+}
+
 interface IERC20 {
     /**
      * @dev Returns the amount of tokens in existence.
@@ -325,15 +335,6 @@ interface IOracle {
     function getPrice() external view returns (uint256);
 }
 
-interface IDODOLpToken {
-    function mint(address user, uint256 value) external;
-
-    function burn(address user, uint256 value) external;
-
-    function balanceOf(address owner) external view returns (uint256);
-
-    function totalSupply() external view returns (uint256);
-}
 contract BConst {
     uint public constant BONE              = 10**18;
 
@@ -761,7 +762,6 @@ contract BMath is BConst, BNum {
 
 }
 
-
 // interface IERC20 {
 //     event Approval(address indexed src, address indexed dst, uint amt);
 //     event Transfer(address indexed src, address indexed dst, uint amt);
@@ -884,7 +884,7 @@ contract BToken is BTokenBase, IERC20 {
     }
 }
 
-contract BPool is BToken, BMath {
+contract PFOLIO is BToken, BMath {
     using SafeMath for uint256;
 
     // struct Record {
@@ -963,6 +963,11 @@ contract BPool is BToken, BMath {
         _swapFee = MIN_FEE;
         _publicSwap = false;
         _finalized = false;
+        _LP_FEE_RATE_ = MIN_FEE;
+        _MT_FEE_RATE_ = MIN_FEE;
+        _K_ = 10**17;
+        _SUPERVISOR_ = msg.sender; // could freeze system in emergency
+        _MAINTAINER_ = msg.sender; // collect maintainer fee to buy food for DODO
     }
 
     function isPublicSwap()
@@ -1678,27 +1683,27 @@ contract BPool is BToken, BMath {
 
     // ============ Variables for Control ============
 
-    bool internal _INITIALIZED_;
-    bool public _CLOSED_;
-    bool public _DEPOSIT_QUOTE_ALLOWED_;
-    bool public _DEPOSIT_BASE_ALLOWED_;
-    bool public _TRADE_ALLOWED_;
-    uint256 public _GAS_PRICE_LIMIT_;
+    // bool internal _INITIALIZED_;
+    // bool public _CLOSED_;
+    // bool public _DEPOSIT_QUOTE_ALLOWED_;
+    // bool public _DEPOSIT_BASE_ALLOWED_;
+    // bool public _TRADE_ALLOWED_;
+    // uint256 public _GAS_PRICE_LIMIT_; 
 
     // ============ Advanced Controls ============
-    bool public _BUYING_ALLOWED_;
-    bool public _SELLING_ALLOWED_;
-    uint256 public _BASE_BALANCE_LIMIT_;
-    uint256 public _QUOTE_BALANCE_LIMIT_;
+    // bool public _BUYING_ALLOWED_;
+    // bool public _SELLING_ALLOWED_;
+    // uint256 public _BASE_BALANCE_LIMIT_;
+    // uint256 public _QUOTE_BALANCE_LIMIT_;
 
     // ============ Core Address ============
 
     address public _SUPERVISOR_; // could freeze system in emergency
     address public _MAINTAINER_; // collect maintainer fee to buy food for DODO
 
-    address public _BASE_TOKEN_;
-    address public _QUOTE_TOKEN_;
-    address public _ORACLE_;
+    // address public _BASE_TOKEN_;
+    // address public _QUOTE_TOKEN_;
+    // address public _ORACLE_;
 
     // ============ Variables for PMM Algorithm ============
 
@@ -1706,20 +1711,20 @@ contract BPool is BToken, BMath {
     uint256 public _MT_FEE_RATE_;
     uint256 public _K_;
 
-    Types.RStatus public _R_STATUS_;
-    uint256 public _TARGET_BASE_TOKEN_AMOUNT_;
-    uint256 public _TARGET_QUOTE_TOKEN_AMOUNT_;
-    uint256 public _BASE_BALANCE_;
-    uint256 public _QUOTE_BALANCE_;
+    // Types.RStatus public _R_STATUS_;
+    // uint256 public _TARGET_BASE_TOKEN_AMOUNT_;
+    // uint256 public _TARGET_QUOTE_TOKEN_AMOUNT_;
+    // uint256 public _BASE_BALANCE_;
+    // uint256 public _QUOTE_BALANCE_;
 
-    address public _BASE_CAPITAL_TOKEN_;
-    address public _QUOTE_CAPITAL_TOKEN_;
+    // address public _BASE_CAPITAL_TOKEN_;
+    // address public _QUOTE_CAPITAL_TOKEN_;
 
     // ============ Variables for Final Settlement ============
 
-    uint256 public _BASE_CAPITAL_RECEIVE_QUOTE_;
-    uint256 public _QUOTE_CAPITAL_RECEIVE_BASE_;
-    mapping(address => bool) public _CLAIMED_;
+    // uint256 public _BASE_CAPITAL_RECEIVE_QUOTE_;
+    // uint256 public _QUOTE_CAPITAL_RECEIVE_BASE_;
+    // mapping(address => bool) public _CLAIMED_;
 
     // ============ Modifiers ============
 
@@ -1728,10 +1733,10 @@ contract BPool is BToken, BMath {
         _;
     }
 
-    modifier notClosed() {
-        require(!_CLOSED_, "DODO_CLOSED");
-        _;
-    }
+    // modifier notClosed() {
+    //     require(!_CLOSED_, "DODO_CLOSED");
+    //     _;
+    // }
 
     // ============ Helper Functions ============
 
@@ -1742,23 +1747,24 @@ contract BPool is BToken, BMath {
     }
 
     function getOraclePrice() public view returns (uint256) {
-        return IOracle(_ORACLE_).getPrice();
+        // return IOracle(_ORACLE_).getPrice();
+        return 5 * (10**3);
     }
 
-    function getBaseCapitalBalanceOf(address lp) public view returns (uint256) {
-        return IDODOLpToken(_BASE_CAPITAL_TOKEN_).balanceOf(lp);
+    function getBaseCapitalBalanceOf(address base, address lp) public view returns (uint256) {
+        return IDODOLpToken(base).balanceOf(lp);
     }
 
-    function getTotalBaseCapital() public view returns (uint256) {
-        return IDODOLpToken(_BASE_CAPITAL_TOKEN_).totalSupply();
+    function getTotalBaseCapital(address base) public view returns (uint256) {
+        return IDODOLpToken(base).totalSupply();
     }
 
-    function getQuoteCapitalBalanceOf(address lp) public view returns (uint256) {
-        return IDODOLpToken(_QUOTE_CAPITAL_TOKEN_).balanceOf(lp);
+    function getQuoteCapitalBalanceOf(address quote, address lp) public view returns (uint256) {
+        return IDODOLpToken(quote).balanceOf(lp);
     }
 
-    function getTotalQuoteCapital() public view returns (uint256) {
-        return IDODOLpToken(_QUOTE_CAPITAL_TOKEN_).totalSupply();
+    function getTotalQuoteCapital(address quote) public view returns (uint256) {
+        return IDODOLpToken(quote).totalSupply();
     }
 
     // ============ Version Control ============
@@ -1846,7 +1852,7 @@ contract BPool is BToken, BMath {
             _K_,
             fairAmount
         );
-        return newTargetQuote.sub(_QUOTE_BALANCE_);
+        return newTargetQuote.sub(quoteToken.balance);
     }
 
     // ============ R > 1 cases ============
@@ -1883,7 +1889,7 @@ contract BPool is BToken, BMath {
             _K_,
             fairAmount
         );
-        return newTargetBase.sub(_BASE_BALANCE_);
+        return newTargetBase.sub(baseToken.balance);
     }
 
     // ============ Helper functions ============
@@ -1989,15 +1995,15 @@ contract BPool is BToken, BMath {
 
     // ============ Donate to Liquidity Pool Functions ============
 
-    function _donateBaseToken(uint256 amount) internal {
-        _TARGET_BASE_TOKEN_AMOUNT_ = _TARGET_BASE_TOKEN_AMOUNT_.add(amount);
-        emit Donate(amount, true);
-    }
+    // function _donateBaseToken(uint256 amount) internal {
+    //     _TARGET_BASE_TOKEN_AMOUNT_ = _TARGET_BASE_TOKEN_AMOUNT_.add(amount);
+    //     emit Donate(amount, true);
+    // }
 
-    function _donateQuoteToken(uint256 amount) internal {
-        _TARGET_QUOTE_TOKEN_AMOUNT_ = _TARGET_QUOTE_TOKEN_AMOUNT_.add(amount);
-        emit Donate(amount, false);
-    }
+    // function _donateQuoteToken(uint256 amount) internal {
+    //     _TARGET_QUOTE_TOKEN_AMOUNT_ = _TARGET_QUOTE_TOKEN_AMOUNT_.add(amount);
+    //     emit Donate(amount, false);
+    // }
 
     // function donateBaseToken(uint256 amount) external preventReentrant {
     //     _baseTokenTransferIn(msg.sender, amount);
@@ -2012,81 +2018,81 @@ contract BPool is BToken, BMath {
     // ============ Final Settlement Functions ============
 
     // last step to shut down dodo
-    function finalSettlement() external onlyOwner notClosed {
-        _CLOSED_ = true;
-        _DEPOSIT_QUOTE_ALLOWED_ = false;
-        _DEPOSIT_BASE_ALLOWED_ = false;
-        _TRADE_ALLOWED_ = false;
-        uint256 totalBaseCapital = getTotalBaseCapital();
-        uint256 totalQuoteCapital = getTotalQuoteCapital();
+    // function finalSettlement(Record memory baseToken, Record memory quoteToken, address base, address quote) external onlyOwner notClosed {
+    //     _CLOSED_ = true;
+    //     _DEPOSIT_QUOTE_ALLOWED_ = false;
+    //     _DEPOSIT_BASE_ALLOWED_ = false;
+    //     _TRADE_ALLOWED_ = false;
+    //     uint256 totalBaseCapital = getTotalBaseCapital(base);
+    //     uint256 totalQuoteCapital = getTotalQuoteCapital(quote);
 
-        if (_QUOTE_BALANCE_ > _TARGET_QUOTE_TOKEN_AMOUNT_) {
-            uint256 spareQuote = _QUOTE_BALANCE_.sub(_TARGET_QUOTE_TOKEN_AMOUNT_);
-            _BASE_CAPITAL_RECEIVE_QUOTE_ = DecimalMath.divFloor(spareQuote, totalBaseCapital);
-        } else {
-            _TARGET_QUOTE_TOKEN_AMOUNT_ = _QUOTE_BALANCE_;
-        }
+    //     if (quoteToken.balance > quoteToken.taretTokenAmount) {
+    //         uint256 spareQuote = quoteToken.balance.sub(quoteToken.taretTokenAmount);
+    //         _BASE_CAPITAL_RECEIVE_QUOTE_ = DecimalMath.divFloor(spareQuote, totalBaseCapital);
+    //     } else {
+    //         quoteToken.taretTokenAmount = quoteToken.balance;
+    //     }
 
-        if (_BASE_BALANCE_ > _TARGET_BASE_TOKEN_AMOUNT_) {
-            uint256 spareBase = _BASE_BALANCE_.sub(_TARGET_BASE_TOKEN_AMOUNT_);
-            _QUOTE_CAPITAL_RECEIVE_BASE_ = DecimalMath.divFloor(spareBase, totalQuoteCapital);
-        } else {
-            _TARGET_BASE_TOKEN_AMOUNT_ = _BASE_BALANCE_;
-        }
+    //     if (baseToken.balance > baseToken.taretTokenAmount) {
+    //         uint256 spareBase = baseToken.balance.sub(baseToken.taretTokenAmount);
+    //         _QUOTE_CAPITAL_RECEIVE_BASE_ = DecimalMath.divFloor(spareBase, totalQuoteCapital);
+    //     } else {
+    //         baseToken.taretTokenAmount = baseToken.balance;
+    //     }
 
-        _R_STATUS_ = Types.RStatus.ONE;
-    }
+    //     baseToken.RStatus = Types.RStatus.ONE;
+    // }
 
-    // claim remaining assets after final settlement
-    // function claimAssets() external preventReentrant {
+ //   claim remaining assets after final settlement
+    // function claimAssets(Record memory baseToken, Record memory quoteToken, address base, address quote) external preventReentrant {
     //     require(_CLOSED_, "DODO_NOT_CLOSED");
     //     require(!_CLAIMED_[msg.sender], "ALREADY_CLAIMED");
     //     _CLAIMED_[msg.sender] = true;
 
-    //     uint256 quoteCapital = getQuoteCapitalBalanceOf(msg.sender);
-    //     uint256 baseCapital = getBaseCapitalBalanceOf(msg.sender);
+    //     uint256 quoteCapital = getQuoteCapitalBalanceOf(base, msg.sender);
+    //     uint256 baseCapital = getBaseCapitalBalanceOf(quote, msg.sender);
 
     //     uint256 quoteAmount = 0;
     //     if (quoteCapital > 0) {
-    //         quoteAmount = _TARGET_QUOTE_TOKEN_AMOUNT_.mul(quoteCapital).div(getTotalQuoteCapital());
+    //         quoteAmount = quoteToken.taretTokenAmount.mul(quoteCapital).div(getTotalQuoteCapital(quote));
     //     }
     //     uint256 baseAmount = 0;
     //     if (baseCapital > 0) {
-    //         baseAmount = _TARGET_BASE_TOKEN_AMOUNT_.mul(baseCapital).div(getTotalBaseCapital());
+    //         baseAmount = baseToken.taretTokenAmount.mul(baseCapital).div(getTotalBaseCapital(base));
     //     }
 
-    //     _TARGET_QUOTE_TOKEN_AMOUNT_ = _TARGET_QUOTE_TOKEN_AMOUNT_.sub(quoteAmount);
-    //     _TARGET_BASE_TOKEN_AMOUNT_ = _TARGET_BASE_TOKEN_AMOUNT_.sub(baseAmount);
+    //     quoteToken.taretTokenAmount = quoteToken.taretTokenAmount.sub(quoteAmount);
+    //     baseToken.taretTokenAmount = baseToken.taretTokenAmount.sub(baseAmount);
 
     //     quoteAmount = quoteAmount.add(DecimalMath.mul(baseCapital, _BASE_CAPITAL_RECEIVE_QUOTE_));
     //     baseAmount = baseAmount.add(DecimalMath.mul(quoteCapital, _QUOTE_CAPITAL_RECEIVE_BASE_));
 
-    //     _baseTokenTransferOut(msg.sender, baseAmount);
-    //     _quoteTokenTransferOut(msg.sender, quoteAmount);
+    //     _baseTokenTransferOut(baseToken, base, msg.sender, baseAmount);
+    //     _quoteTokenTransferOut(baseToken, quote, msg.sender, quoteAmount);
 
-    //     IDODOLpToken(_BASE_CAPITAL_TOKEN_).burn(msg.sender, baseCapital);
-    //     IDODOLpToken(_QUOTE_CAPITAL_TOKEN_).burn(msg.sender, quoteCapital);
+    //     IDODOLpToken(base).burn(msg.sender, baseCapital);
+    //     IDODOLpToken(quote).burn(msg.sender, quoteCapital);
 
     //     emit ClaimAssets(msg.sender, baseAmount, quoteAmount);
     //     return;
     // }
 
     // in case someone transfer to contract directly
-    function retrieve(address token, uint256 amount) external onlyOwner {
-        if (token == _BASE_TOKEN_) {
-            require(
-                IERC20(_BASE_TOKEN_).balanceOf(address(this)) >= _BASE_BALANCE_.add(amount),
-                "DODO_BASE_BALANCE_NOT_ENOUGH"
-            );
-        }
-        if (token == _QUOTE_TOKEN_) {
-            require(
-                IERC20(_QUOTE_TOKEN_).balanceOf(address(this)) >= _QUOTE_BALANCE_.add(amount),
-                "DODO_QUOTE_BALANCE_NOT_ENOUGH"
-            );
-        }
-        IERC20(token).safeTransfer(msg.sender, amount);
-    }
+    // function retrieve(address token, uint256 amount) external onlyOwner {
+    //     if (token == _BASE_TOKEN_) {
+    //         require(
+    //             IERC20(_BASE_TOKEN_).balanceOf(address(this)) >= _BASE_BALANCE_.add(amount),
+    //             "DODO_BASE_BALANCE_NOT_ENOUGH"
+    //         );
+    //     }
+    //     if (token == _QUOTE_TOKEN_) {
+    //         require(
+    //             IERC20(_QUOTE_TOKEN_).balanceOf(address(this)) >= _QUOTE_BALANCE_.add(amount),
+    //             "DODO_QUOTE_BALANCE_NOT_ENOUGH"
+    //         );
+    //     }
+    //     IERC20(token).safeTransfer(msg.sender, amount);
+    // }
 
 // Trader
 
@@ -2100,25 +2106,25 @@ contract BPool is BToken, BMath {
 
     // ============ Modifiers ============
 
-    modifier tradeAllowed() {
-        require(_TRADE_ALLOWED_, "TRADE_NOT_ALLOWED");
-        _;
-    }
+    // modifier tradeAllowed() {
+    //     require(_TRADE_ALLOWED_, "TRADE_NOT_ALLOWED");
+    //     _;
+    // }
 
-    modifier buyingAllowed() {
-        require(_BUYING_ALLOWED_, "BUYING_NOT_ALLOWED");
-        _;
-    }
+    // modifier buyingAllowed() {
+    //     require(_BUYING_ALLOWED_, "BUYING_NOT_ALLOWED");
+    //     _;
+    // }
 
-    modifier sellingAllowed() {
-        require(_SELLING_ALLOWED_, "SELLING_NOT_ALLOWED");
-        _;
-    }
+    // modifier sellingAllowed() {
+    //     require(_SELLING_ALLOWED_, "SELLING_NOT_ALLOWED");
+    //     _;
+    // }
 
-    modifier gasPriceLimit() {
-        require(tx.gasprice <= _GAS_PRICE_LIMIT_, "GAS_PRICE_EXCEED");
-        _;
-    }
+    // modifier gasPriceLimit() {
+    //     require(tx.gasprice <= _GAS_PRICE_LIMIT_, "GAS_PRICE_EXCEED");
+    //     _;
+    // }
 
     // ============ Trade Functions ============
 
@@ -2126,10 +2132,11 @@ contract BPool is BToken, BMath {
         address base,
         address quote,
         uint256 amount,
-        uint256 minReceiveQuote,
-        bytes calldata data
-    ) external tradeAllowed sellingAllowed gasPriceLimit preventReentrant returns (uint256) {
-
+        uint256 minReceiveQuote
+        // bytes calldata data
+    // ) external tradeAllowed sellingAllowed gasPriceLimit preventReentrant returns (uint256) {
+    ) external preventReentrant returns (uint256) {
+        
         Record memory baseToken = _records[base]; 
         Record memory quoteToken = _records[quote]; 
         // query price
@@ -2175,9 +2182,10 @@ contract BPool is BToken, BMath {
         address base,
         address quote,
         uint256 amount,
-        uint256 maxPayQuote,
-        bytes calldata data
-    ) external tradeAllowed buyingAllowed gasPriceLimit preventReentrant returns (uint256) {
+        uint256 maxPayQuote
+        // bytes calldata data
+    // ) external tradeAllowed buyingAllowed gasPriceLimit preventReentrant returns (uint256) {
+    ) external preventReentrant returns (uint256) {
         
         Record memory baseToken = _records[base]; 
         Record memory quoteToken = _records[quote]; 
