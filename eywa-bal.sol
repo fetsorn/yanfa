@@ -549,7 +549,7 @@ contract BToken is BTokenBase, IERC20 {
     }
 }
 
-// contract BPool is BBronze, BToken, BMath {
+contract BPool is BBronze, BToken, BMath {
 
     struct Record {
         bool bound;   // is token bound to pool

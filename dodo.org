@@ -115,6 +115,8 @@ if B<B₀, R = 1 − k + (B₀/B)^2 * k
 if Q<Q₀, R = 1 / (1 − k + (Q₀/Q)^2 * k)
 else R=1
 
+#+name: exercises
+#+begin_quote
 Pmargin=iR
 
 if B<B₀, R = 1 + (B₀/B)^2
@@ -128,6 +130,8 @@ else R=1
 p=Ri
 R=0.5+x
 p=i*(0.5+x)=0.5i + 0.5i
+
+#+end_quote
 
 i is the market price provided by an oracle, and k is a parameter in the range (0, 1).
 **** The Three Possible States in PMM#
