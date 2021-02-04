@@ -1,1 +1,233 @@
 #+title: smart contract languages
+
+* Overview
+  :PROPERTIES:
+  :CUSTOM_ID: overview
+  :END:
+This is a curated collection of resources on specialized programming
+languages executed by decentralized peer-to-peer networks, also known as
+blockchains.
+
+Let us define a smart contract, or simply contract, as a piece of code
+created by a blockchain user and executed by a blockchain node. A smart
+contract language (SCL) is a programming language that is either used to
+write a smart contract directly, or is compiled to it.
+
+Programming languages differ on multiple dimensions, such as
+[[https://en.wikipedia.org/wiki/Programming_paradigm][paradigm]] and
+[[https://en.wikipedia.org/wiki/Type_system][type system]]. Due to a
+very unusual execution environment, SCLs have a different set of
+trade-offs compared to earlier languages. This spawned multiple attempts
+at creating secure and expressive SCLs.
+
+* Pre-Bitcoin
+  :PROPERTIES:
+  :CUSTOM_ID: pre-bitcoin
+  :END:
+
+- [[http://nakamotoinstitute.org/contract-language/][A formal language
+  for analyzing contracts]] - an essay by Nick Szabo
+- [[http://www.erights.org/][E]] - referenced by Szabo
+
+* Bitcoin
+  :PROPERTIES:
+  :CUSTOM_ID: bitcoin
+  :END:
+
+- [[https://en.bitcoin.it/wiki/Script][Bitcoin Script]] - a stack-based
+  non Turing complete Forth-like language used to write script that
+  determine whether a UTXO can be spent.
+- [[https://github.com/ivy-lang/ivy-bitcoin][Ivy]] - a non Turing
+  complete higher-level language that compiles to Bitcoin Script
+  ([[https://blog.chain.com/ivy-for-bitcoin-a-smart-contract-language-that-compiles-to-bitcoin-script-bec06377141a][announcement]])
+- [[https://github.com/ElementsProject/simplicity][Simplicity]] - a
+  typed functional programming language utilizing combinators
+  [[https://medium.com/@danrobinson/understanding-simplicity-implementing-a-smart-contract-language-in-30-lines-of-haskell-827521bfeb4d][blog
+  post]], [[https://iohk.io/blog/simplicity-and-michelson/][another
+  one]]
+- [[https://github.com/bitml-lang/bitml-compiler][BitML]] - a process
+  calculus based language, compiles to Bitcoin script
+  ([[https://eprint.iacr.org/2018/122][article]])
+- [[https://blockchain.unica.it/balzac/docs/][BALZaC]] - a high-level
+  language based on the formal model proposed in
+  [[https://eprint.iacr.org/2017/1124.pdf][[AB+18FC]]]
+- [[http://bitcoin.sipa.be/miniscript/][Miniscript]] - a language for
+  writing (a subset of) Bitcoin Scripts in a structured way, enabling
+  analysis, composition, generic signing and more
+
+  - [[http://diyhpl.us/wiki/transcripts/stanford-blockchain-conference/2019/miniscript/][Policy
+    Language]] - nicer language that compiles to Miniscript
+
+- [[https://www.coindesk.com/this-new-coding-language-could-help-unlock-bitcoins-smart-contract-potential][Sapio]]
+- [[https://min.sc/][Minsc]] - a high-level scripting language for
+  expressing Bitcoin Script spending conditions based on Miniscript
+  Policy
+
+* Ethereum
+  :PROPERTIES:
+  :CUSTOM_ID: ethereum
+  :END:
+Last update in 2020: *
+[[https://ethervm.io/][Ethereum bytecode]] - a Turing complete stack-based language executed by the Ethereum virtual machine (EVM) *
+[[https://solidity.readthedocs.io/en/latest/][Solidity]] - a high-level imperative statically typed language compiled to EVM *
+[[https://vyper.readthedocs.io/en/latest/][Vyper]] - a high-level language compiled to EVM ([[https://runtimeverification.com/blog/?p=617][announcement of formal tools from RV]]) *
+[[https://github.com/ethereum/fe][Fe]] - a language inspired by Vyper aiming to achieve its goals *
+[[https://ewasm.readthedocs.io/en/mkdocs/][eWASM]] - a restricted subset of [[http://webassembly.org/][WebAssembly]] for Ethereum contracts *
+[[https://www.idris-lang.org/][Idris]] - a pure functional language with dependent types *
+[[https://github.com/flintlang/flint][Flint]] - a type-safe, contract-oriented programming language specifically designed for writing robust smart contracts on Ethereum *
+[[https://github.com/MaiaVictor/Formality][Formality]] - an efficient programming language featuring formal proofs *
+[[https://github.com/AztecProtocol/huff][Huff]] - an efficient low-level language with macros *
+[[https://www.etorox.com/lira/][Lira]] - a declarative domain-specific language for defining simple yet highly complex financial contracts for EVM *
+[[https://github.com/matter-labs/zinc][Zinc]] - a language to write zero-knowledge circuits and ZKP-based smart contracts
+
+No updates after 2018: *
+[[https://github.com/pirapira/bamboo][Bamboo]] - a high-level
+"formal-verification-friendly" language compiled to EVM *
+[[https://github.com/MichaelBurge/pyramid-scheme][Pyramid]] - An EVM
+backend for SICP Scheme *
+[[https://arxiv.org/abs/1803.09885][Lolisa]] - subset of Solidity *
+[[https://github.com/logikon-lang/logikon][Logikon]] - an experimental
+language for smart contracts
+
+No updates after 2017: *
+[[https://lll-docs.readthedocs.io/en/latest/][LLL]] - a "low-level
+Lisp-like language" compiled to EVM bytecode
+([[https://media.consensys.net/an-introduction-to-lll-for-ethereum-smart-contract-development-e26e38ea6c23][blog
+post]], [[http://blog.syrinx.net/][series of blog posts]]) *
+[[https://github.com/raineorshine/functional-solidity-language][functional-solidity-language]] -
+pretty much self-descriptive :) *
+[[https://github.com/ethereum/serpent/tree/ad53fa2a8a496448d58ef9137959b4a1e86b14d7][Serpent]] -
+a Python-like high-level language compiled to EVM (deprecated due to
+[[https://blog.zeppelin.solutions/serpent-compiler-audit-3095d1257929][security
+issues with the compiler]]) *
+[[https://medium.com/@chriseth/babbage-a-mechanical-smart-contract-language-5c8329ec5a0e][Babbage]] -
+"a mechanical smart contract language" *
+[[https://solidityx.org/][SolidityX]] - a typed-superset of Solidity
+
+No updates after 2016: *
+[[https://youtu.be/Ufy8oM-Ou90][L4]] - a
+language "based on deontic modal logic", presented at Devcon 2 (Sep
+2016) *
+[[https://github.com/obscuren/mutan][Mutan]] - a C-like language
+compiled to EVM (deprecated)
+
+** IRs
+  :PROPERTIES:
+  :CUSTOM_ID: irs
+  :END:
+
+- [[https://solidity.readthedocs.io/en/latest/yul.html][Yul]] (ex JULIA,
+ ex IULIA) - an intermediate language that can be compiled to bytecode
+ for different backends.
+- [[https://github.com/FuelLabs/yulp][Yul+]] - a low-level, highly
+ efficient extension to Yul
+- [[https://github.com/crytic/slither/wiki/SlithIR][SlithIR]] - an
+ intermediate representation that is used by Slither to enable
+ high-precision analysis via a simple API. It supports taint and value
+ tracking to enable detection of complex patterns.
+- [[https://elle.readthedocs.io/en/latest/syntax.html#][Elle]] - The
+ Elle source language, also known as Elle-Core, captures structured
+ programming abstractions and enables their translation to Ethereum EVM
+ bytecode through a verified
+ [[https://elle.readthedocs.io/en/latest/implementation.html][compiler]].
+
+** DSLs
+  :PROPERTIES:
+  :CUSTOM_ID: dsls
+  :END:
+
+- [[https://github.com/AlacrisIO/alacrity][Alacrity]] - a DSL for
+ simple, formally-verified DApps
+- [[https://github.com/accordproject/ergo][Ergo]] - Domain specific
+ language for smart legal contracts
+- [[https://pegasys.tech/sandcastle-brings-sql-to-ethereum-smart-contracts/][Sandcastle]] -
+ a SQL Ethereum smart contract language
+- [[https://github.com/anmavrid/smart-contracts/tree/FSMGenerator][FSolidM]] -
+ framework for [[https://cps-vo.org/group/smartcontracts][visual
+ programming]] of Finite State Machines
+- [[https://github.com/cryptolu/findel][Findel]] - a non Turing complete
+ financial DSL inspired by a
+ [[https://www.microsoft.com/en-us/research/publication/composing-contracts-an-adventure-in-financial-engineering/][S.P.Jones'
+ work]]
+- the language from
+ [[https://link.springer.com/article/10.1007/s12599-017-0507-z][the
+ paper]] by Egelund-Müller et al
+- [[https://firmo.network/][Chorus]] - a financial contractual markup
+ language by Firmo network
+- [[https://papers.christopherfrantz.org/pdf/FrantzNowostawski2016_Smart_Contracts_nADICO.pdf][ADICO]] -
+ a domain-specific language to support the contract modeling process
+- [[https://github.com/paritytech/ink][ink!]] - an embedded DSL for
+ writing WebAssembly based smart contracts using the Rust programming
+ language and targeting Substrate blockchains.
+ [[https://substrate.dev/docs/en/contracts/][Documentation]]
+
+* Other blockchains
+ :PROPERTIES:
+ :CUSTOM_ID: other-blockchains
+ :END:
+
+- [[https://developers.libra.org/docs/move-paper][Move]] - a safe and
+ flexible programming language for the Libra Blockchain
+- [[http://www.michelson-lang.com/][Michelson]] - a stack based and
+ strongly typed domain-specific language (Tezos)
+- [[http://www.liquidity-lang.org/][Liquidity]] - a high-level typed
+ smart-contract language that strictly complies to Michelson security
+ restrictions (Tezos)
+- [[https://github.com/TezTech/fi][fi]] (Tezos)
+- [[https://medium.com/tezos/introducing-ligo-a-new-smart-contract-language-for-tezos-233fa17f21c7][LIGO]]
+ (Tezos)
+- [[https://github.com/input-output-hk/plutus][Plutus]] - a pure
+ functional language with user-defined data types and polymorphism
+ (Cardano); compiles to Plutus Core
+ ([[https://youtu.be/IqA-mI2olFA][video]])
+- [[https://iohk.io/en/blog/posts/2018/12/11/marlowe-financial-contracts-on-blockchain/][Marlowe]] -
+ a domain-specific language for smart contract language embedded in
+ Plutus (Cardano)
+- [[https://github.com/rchain/rchain/tree/master/rholang][Rholang]] - a
+ reflective higher-order process calculus language (RChain)
+- [[https://mcoblenz.github.io/Obsidian/][Obsidian]] - a state-oriented
+ language with linear types
+- [[https://daml.com/][DAML]] - a smart contract language of Digital
+ Asset
+- [[https://apla.io/][Simvolio]] (Apla blockchain platform)
+- [[https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf][RIDE]] -
+ a non Turing complete
+ [[https://docs.wavesplatform.com/en/technical-details/ride-language.html][language]]
+ infulenced by Scala and F# (Waves)
+- [[https://scilla-lang.org][Scilla]] - an intermediate level language
+ for verified smart contracts (Zilliqa)
+- [[https://github.com/chain/txvm][TxVM]] (Chain)
+- [[https://github.com/runtimeverification/iele-semantics][IELE]] - a
+ variant of LLVM specialized to execute smart contracts on the
+ blockchain
+- [[https://pact-language.readthedocs.io/en/stable/][Pact]] - a smart
+ contract language with a Lisp syntax but Haskell-like types (Kadena)
+- [[https://eprint.iacr.org/2018/416][Ledger Design Language]] - a
+ modeling language for describing public ledgers
+- [[https://github.com/ScorexFoundation/sigmastate-interpreter][Sigma-State]]
+ (Ergo)
+- [[https://github.com/aeternity/protocol/blob/master/contracts/sophia.md][Sophia]] -
+ a strongly typed language in the ML family (Æternity)
+- [[https://github.com/aeternity/protocol/blob/master/contracts/varna.md][Varna]] -
+ a non Turing complete high-level language (Æternity)
+- [[https://test.ton.org/fiftbase.pdf][Fift]] - a stack-based general
+ purpose programming language optimized for TON Blockchain smart
+ contracts (TON)
+- [[https://blog.blockstack.org/introducing-clarity-the-language-for-predictable-smart-contracts/][Clarity]]
+ (Blockstack)
+- [[https://github.com/cosmos/ethermint][Ethermint]] (Cosmos)
+- [[https://www.coindesk.com/cosmos-will-have-3-coding-languages-heres-why-that-matters-for-ethereum][Secure
+ EcmaScript]] (Cosmos)
+- [[https://www.coindesk.com/cosmos-will-have-3-coding-languages-heres-why-that-matters-for-ethereum][Kadenamint]]
+ (Cosmos)
+
+* Other links
+ :PROPERTIES:
+ :CUSTOM_ID: other-links
+ :END:
+
+- https://github.com/pirapira/fp-ethereum - a collection of links
+ related to function programming for Ethereum
+- [[https://blog.comae.io/smart-contract-languages-development-to-follow-992e30774b39][Smart
+ Contract Languages Development to Follow]] - a post by Matt Suiche,
+ Comae (Dec 2017)

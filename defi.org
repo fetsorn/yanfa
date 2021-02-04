@@ -1,8 +1,6 @@
 #+TITLE: Defi
 
 * tasks
- - list hedge funds
-
 * project management
 ** gravity
  - polka-gravity gateways
@@ -64,7 +62,7 @@ Otherwise, the addition of tokens to the liquidity pool occurs in such a way tha
 By burning tokens on a smart contract (REDEEM), one can get a group of tokens that make up a portfolio in proportion which is current at the moment of the redeem operation.
 
    #+end_quote
-** eiva
+** eywa
    #+begin_quote
 By analogy with the Neutrino protocol, to release a synthetic DeFo asset (e.g. $USDg), a user can lock $PFOLIO tokens on a smart contract and issue $100 DeFo tokens for $100 of locked tokens, for example $100 USDg or $83 EURg.
 
