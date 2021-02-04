@@ -334,7 +334,6 @@ interface IDODOLpToken {
 
     function totalSupply() external view returns (uint256);
 }
-
 contract BConst {
     uint public constant BONE              = 10**18;
 
@@ -2172,51 +2171,57 @@ contract BPool is BToken, BMath {
         return receiveQuote;
     }
 
-    // function buyBaseToken(
-    //     uint256 amount,
-    //     uint256 maxPayQuote,
-    //     bytes calldata data
-    // ) external tradeAllowed buyingAllowed gasPriceLimit preventReentrant returns (uint256) {
-    //     // query price
-    //     (
-    //         uint256 payQuote,
-    //         uint256 lpFeeBase,
-    //         uint256 mtFeeBase,
-    //         Types.RStatus newRStatus,
-    //         uint256 newQuoteTarget,
-    //         uint256 newBaseTarget
-    //     ) = _queryBuyBaseToken(amount);
-    //     require(payQuote <= maxPayQuote, "BUY_BASE_COST_TOO_MUCH");
+    function buyBaseToken(
+        address base,
+        address quote,
+        uint256 amount,
+        uint256 maxPayQuote,
+        bytes calldata data
+    ) external tradeAllowed buyingAllowed gasPriceLimit preventReentrant returns (uint256) {
+        
+        Record memory baseToken = _records[base]; 
+        Record memory quoteToken = _records[quote]; 
+        
+        // query price
+        (
+            uint256 payQuote,
+            // uint256 lpFeeBase,
+            // uint256 mtFeeBase,
+            Types.RStatus newRStatus,
+            uint256 newQuoteTarget,
+            uint256 newBaseTarget
+        ) = _queryBuyBaseToken(baseToken, quoteToken, amount);
+        require(payQuote <= maxPayQuote, "BUY_BASE_COST_TOO_MUCH");
 
-    //     // settle assets
-    //     _baseTokenTransferOut(msg.sender, amount);
-    //     if (data.length > 0) {
-    //         IDODOCallee(msg.sender).dodoCall(true, amount, payQuote, data);
-    //     }
-    //     _quoteTokenTransferIn(msg.sender, payQuote);
-    //     if (mtFeeBase != 0) {
-    //         _baseTokenTransferOut(_MAINTAINER_, mtFeeBase);
-    //         emit ChargeMaintainerFee(_MAINTAINER_, true, mtFeeBase);
-    //     }
+        // settle assets
+        _baseTokenTransferOut(baseToken, base, msg.sender, amount);
+        // if (data.length > 0) {
+        //     IDODOCallee(msg.sender).dodoCall(true, amount, payQuote, data);
+        // }
+        _quoteTokenTransferIn(quoteToken, quote, msg.sender, payQuote);
+        // if (mtFeeBase != 0) {
+        //     _baseTokenTransferOut(_MAINTAINER_, mtFeeBase);
+        //     emit ChargeMaintainerFee(_MAINTAINER_, true, mtFeeBase);
+        // }
 
-    //     // update TARGET
-    //     if (_TARGET_QUOTE_TOKEN_AMOUNT_ != newQuoteTarget) {
-    //         _TARGET_QUOTE_TOKEN_AMOUNT_ = newQuoteTarget;
-    //     }
-    //     if (_TARGET_BASE_TOKEN_AMOUNT_ != newBaseTarget) {
-    //         _TARGET_BASE_TOKEN_AMOUNT_ = newBaseTarget;
-    //     }
-    //     if (_R_STATUS_ != newRStatus) {
-    //         _R_STATUS_ = newRStatus;
-    //     }
+        // update TARGET
+        if (quoteToken.taretTokenAmount != newQuoteTarget) {
+            quoteToken.taretTokenAmount = newQuoteTarget;
+        }
+        if (baseToken.taretTokenAmount != newBaseTarget) {
+            baseToken.taretTokenAmount = newBaseTarget;
+        }
+        if (baseToken.RStatus != newRStatus) {
+            baseToken.RStatus = newRStatus;
+        }
 
-    //     _donateBaseToken(lpFeeBase);
-    //     emit BuyBaseToken(msg.sender, amount, payQuote);
+        // _donateBaseToken(lpFeeBase);
+        emit BuyBaseToken(msg.sender, amount, payQuote);
 
-    //     return payQuote;
-    // }
+        return payQuote;
+    }
 
-    // ============ Query Functions ============
+   // ============ Query Functions ============
 
     // function querySellBaseToken(uint256 amount) external view returns (uint256 receiveQuote) {
     //     (receiveQuote, , , , , ) = _querySellBaseToken(amount);
@@ -2292,57 +2297,58 @@ contract BPool is BToken, BMath {
         return (receiveQuote, newRStatus, newQuoteTarget, newBaseTarget);
     }
 
-    // function _queryBuyBaseToken(uint256 amount)
-    //     internal
-    //     view
-    //     returns (
-    //         uint256 payQuote,
-    //         uint256 lpFeeBase,
-    //         uint256 mtFeeBase,
-    //         Types.RStatus newRStatus,
-    //         uint256 newQuoteTarget,
-    //         uint256 newBaseTarget
-    //     )
-    // {
-    //     (newBaseTarget, newQuoteTarget) = getExpectedTarget();
+    function _queryBuyBaseToken(Record memory baseToken, Record memory quoteToken, uint256 amount)
+        internal
+        view
+        returns (
+            uint256 payQuote,
+            // uint256 lpFeeBase,
+            // uint256 mtFeeBase,
+            Types.RStatus newRStatus,
+            uint256 newQuoteTarget,
+            uint256 newBaseTarget
+        )
+    {
+        (newBaseTarget, newQuoteTarget) =  getExpectedTarget(baseToken, quoteToken);
 
-    //     // charge fee from user receive amount
-    //     // lpFeeBase = DecimalMath.mul(amount, 0.3);
-    //     // mtFeeBase = DecimalMath.mul(amount, _MT_FEE_RATE_);
-    //     // uint256 buyBaseAmount = amount.add(lpFeeBase).add(mtFeeBase);
-    //     uint256 buyBaseAmount = amount;
+        // charge fee from user receive amount
+        // lpFeeBase = DecimalMath.mul(amount, 0.3);
+        // mtFeeBase = DecimalMath.mul(amount, _MT_FEE_RATE_);
+        // uint256 buyBaseAmount = amount.add(lpFeeBase).add(mtFeeBase);
+        uint256 buyBaseAmount = amount;
 
-    //     if (_R_STATUS_ == Types.RStatus.ONE) {
-    //         // case 1: R=1
-    //         payQuote = _ROneBuyBaseToken(buyBaseAmount, newBaseTarget);
-    //         newRStatus = Types.RStatus.ABOVE_ONE;
-    //     } else if (_R_STATUS_ == Types.RStatus.ABOVE_ONE) {
-    //         // case 2: R>1
-    //         payQuote = _RAboveBuyBaseToken(buyBaseAmount, _BASE_BALANCE_, newBaseTarget);
-    //         newRStatus = Types.RStatus.ABOVE_ONE;
-    //     } else if (_R_STATUS_ == Types.RStatus.BELOW_ONE) {
-    //         uint256 backToOnePayQuote = newQuoteTarget.sub(_QUOTE_BALANCE_);
-    //         uint256 backToOneReceiveBase = _BASE_BALANCE_.sub(newBaseTarget);
-    //         // case 3: R<1
-    //         // complex case, R status may change
-    //         if (buyBaseAmount < backToOneReceiveBase) {
-    //             // case 3.1: R status do not change
-    //             // no need to check payQuote because spare base token must be greater than zero
-    //             payQuote = _RBelowBuyBaseToken(buyBaseAmount, _QUOTE_BALANCE_, newQuoteTarget);
-    //             newRStatus = Types.RStatus.BELOW_ONE;
-    //         } else if (buyBaseAmount == backToOneReceiveBase) {
-    //             // case 3.2: R status changes to ONE
-    //             payQuote = backToOnePayQuote;
-    //             newRStatus = Types.RStatus.ONE;
-    //         } else {
-    //             // case 3.3: R status changes to ABOVE_ONE
-    //             payQuote = backToOnePayQuote.add(
-    //                 _ROneBuyBaseToken(buyBaseAmount.sub(backToOneReceiveBase), newBaseTarget)
-    //             );
-    //             newRStatus = Types.RStatus.ABOVE_ONE;
-    //         }
-    //     }
+        if (baseToken.RStatus == Types.RStatus.ONE) {
+            // case 1: R=1
+            payQuote = _ROneBuyBaseToken(buyBaseAmount, newBaseTarget);
+            newRStatus = Types.RStatus.ABOVE_ONE;
+        } else if (baseToken.RStatus == Types.RStatus.ABOVE_ONE) {
+            // case 2: R>1
+            payQuote = _RAboveBuyBaseToken(buyBaseAmount, baseToken.balance, newBaseTarget);
+            newRStatus = Types.RStatus.ABOVE_ONE;
+        } else if (baseToken.RStatus == Types.RStatus.BELOW_ONE) {
+            uint256 backToOnePayQuote = newQuoteTarget.sub(quoteToken.balance);
+            uint256 backToOneReceiveBase = baseToken.balance.sub(newBaseTarget);
+            // case 3: R<1
+            // complex case, R status may change
+            if (buyBaseAmount < backToOneReceiveBase) {
+                // case 3.1: R status do not change
+                // no need to check payQuote because spare base token must be greater than zero
+                payQuote = _RBelowBuyBaseToken(buyBaseAmount, quoteToken.balance, newQuoteTarget);
+                newRStatus = Types.RStatus.BELOW_ONE;
+            } else if (buyBaseAmount == backToOneReceiveBase) {
+                // case 3.2: R status changes to ONE
+                payQuote = backToOnePayQuote;
+                newRStatus = Types.RStatus.ONE;
+            } else {
+                // case 3.3: R status changes to ABOVE_ONE
+                payQuote = backToOnePayQuote.add(
+                    _ROneBuyBaseToken(buyBaseAmount.sub(backToOneReceiveBase), newBaseTarget)
+                );
+                newRStatus = Types.RStatus.ABOVE_ONE;
+            }
+        }
 
-    //     return (payQuote, lpFeeBase, mtFeeBase, newRStatus, newQuoteTarget, newBaseTarget);
-    // }
+        // return (payQuote, lpFeeBase, mtFeeBase, newRStatus, newQuoteTarget, newBaseTarget);
+        return (payQuote, newRStatus, newQuoteTarget, newBaseTarget);
+    }
 }
